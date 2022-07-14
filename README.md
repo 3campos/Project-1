@@ -74,3 +74,4 @@ Personal notes: reviewer should ignore
 **suggestion: name this game something else since rules will be altered.
     ** can be 1 or 2 players but 1 is fine.
     **can start with 52 but can decrease
+
