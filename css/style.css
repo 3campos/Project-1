@@ -6,19 +6,21 @@ h1{
     text-align: center;
 }
 
-/*create multiple elements through css for class*/
+/*create multiple elements through css for each 'hands' class*/
 
-.dealersHand{
+.dealersHand, .playersHand{
     width: 50px;
     border: 15px solid yellow;
     padding: 50px;
     margin: 20px;
 }
 
-.dealersHandContainer{
+.dealersHandContainer, .playersHandContainer{
     display: flex;
     justify-content: center;
     align-content: center;
     justify-content: space-evenly;
     flex-direction: row;
 }
+/*I'll need to move playersHandContainer to its own flexbox display setup if I need to adjust its location*/
+
