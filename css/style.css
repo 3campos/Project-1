@@ -8,6 +8,14 @@ h1{
 
 /*create multiple elements through css for each 'hands' class*/
 
+#dealersHandTitle{
+    text-align: center; 
+}
+
+#playersHandTitle{
+    text-align: center;
+}
+
 .dealersHandContainer, .playersHandContainer{
     display: flex;
     justify-content: center;
