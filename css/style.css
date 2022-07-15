@@ -11,7 +11,6 @@ h1{
 .dealersHandContainer, .playersHandContainer{
     display: flex;
     justify-content: center;
-    /* align-content: center; */
     justify-content: space-evenly;
     flex-direction: row;
 }
@@ -20,20 +19,26 @@ h1{
     width: 50px;
     border: 15px solid yellow;
     padding: 50px;
-    margin: 20px;
+    margin: 20px auto;
+    /* margin: 20px; */
 }
 
 /*I'll need to move playersHandContainer to its own flexbox display setup if I need to adjust its location*/
 
 /*plan: create a container for the table pot in html*/
+
 .potContainer{
     display: flex;
     justify-content: center;
 }
 
 #tablePot{
-    width: 50px;
+    width: 52px;
     border: 15px solid yellow;
     padding: 50px;
-    margin: 20px;
+    margin: 0px 20px 0px 138px;
+    /*
+    for 0 auto
+    0 is for top-bottom; auto for left-right
+    */
 }
