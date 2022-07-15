@@ -13,6 +13,7 @@ h1{
     text-align: center;
     font-size: 24px;
     text-decoration: underline dotted white 20%;
+    /* if time allows: make the dots a box; and figure out a way to make the dots march around when the player wins a round */
 }
 
 #playersHandTitle{
