@@ -5,3 +5,20 @@ body{
 h1{
     text-align: center;
 }
+
+/*create multiple elements through css for class*/
+
+.dealersHand{
+    width: 50px;
+    border: 15px solid yellow;
+    padding: 50px;
+    margin: 20px;
+}
+
+.dealersHandContainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
