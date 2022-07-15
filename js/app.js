@@ -1,3 +1,10 @@
+//green-felt poker table background
+document.body.style.backgroundImage = "url('./images/green-felt-background-texture-poker-casino-table.jpeg')";
+document.body.style.backgroundSize = 'cover';
+document.body.style.backgroundRepeat = 'no-repeat';
+
+//CLASSES
+
 class MainDeck {
     constructor(deck, suits, cards){
         this.deck = []
