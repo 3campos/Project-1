@@ -1,5 +1,6 @@
 body{
     color: yellow;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h1{
@@ -9,11 +10,13 @@ h1{
 /*create multiple elements through css for each 'hands' class*/
 
 #dealersHandTitle{
-    text-align: center; 
+    text-align: center;
+    font-size: 24px;
 }
 
 #playersHandTitle{
     text-align: center;
+    font-size: 24px;
 }
 
 .dealersHandContainer, .playersHandContainer{
@@ -38,13 +41,14 @@ h1{
 .potContainer{
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 }
 
 #tablePot{
     width: 52px;
     border: 15px solid yellow;
     padding: 50px;
-    margin: 0px 20px 0px 138px;
+    /* margin: 0px 20px 0px 138px; */
     /*
     for 0 auto
     0 is for top-bottom; auto for left-right
