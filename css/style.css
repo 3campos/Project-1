@@ -12,11 +12,13 @@ h1{
 #dealersHandTitle{
     text-align: center;
     font-size: 24px;
+    text-decoration: underline dotted white 20%;
 }
 
 #playersHandTitle{
     text-align: center;
     font-size: 24px;
+    text-decoration: underline dotted white 20%;
 }
 
 .dealersHandContainer, .playersHandContainer{
