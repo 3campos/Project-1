@@ -28,7 +28,9 @@ console.log('tableDeck console.log', tableDeck.deck)
 //the below is a test to access specific card in array console.log(tableDeck.deck[3]). The result is 4 of hearts.
 //console.log(tableDeck.deck[3])
 
-const playerName = prompt("Enter Your Name")
+// const playerName = prompt("Enter Your Name")
+//CONSOLE.LOGGING THIS OUT FOR NOW TO PREVENT HINDERANCES TO GIT ADDING/COMMITTING
+console.log('remember to turn prompt back on')
 
 // const playerName = 'Bond ... James Bond';
 class Player {
