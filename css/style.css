@@ -19,6 +19,8 @@ body{
     display: block;
     flex-direction: column;
     justify-content: left;
+    width: 150px;
+    padding: 20px 10px 0px 10px;
     /* align-items: flex-start; */
     /*QUESTION 2 Why isn't justify-content left making the instructions move to the left of my gameplay container?*/
 }
