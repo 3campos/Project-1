@@ -6,6 +6,7 @@ body{
 .umbrellaContainer{
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 #instructionsTitle{
@@ -16,9 +17,10 @@ body{
 }
 
 .instructionsContainer{
-    display: block;
+    display: flex;
     flex-direction: column;
     width: 150px;
+    height: 100%;
     padding: 20px 10px 0px 10px;
     text-align: justify;
     /* align-items: flex-start; */
@@ -27,7 +29,7 @@ body{
 
 .startAndRestartButtonsContainer{
     display: flex;
-    height: 20%;
+    height: 150px;
     width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
@@ -38,30 +40,46 @@ body{
     /* padding: 20px 10px 0px 10px; */
 }
 
+.startAndRestartButtons{
+    height: 30%;
+    padding: 10%;
+}
+
 .masterGameplayContainer{
     display: block;
     width: 75%;
+    height: 100%;
     /* why when I set this to display: block does it not look right but when I change it to display: flex it completely alters the positioning of everything inside into a row?*/
     /* does not have to be display flex to use percentages*/
 }
 
 #gameName{
     text-align: center;
+    margin: 3% 0;
+    letter-spacing: 10px;
+    font-size: 32px;
+    text-decoration: underline dotted white 20%;
 }
 
 /*create multiple elements through css for each 'hands' class*/
 
 #dealersHandTitle{
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     text-decoration: underline dotted white 20%;
+    letter-spacing: 5px;
+    margin: 1% 0;
+    height: 100%;
     /* if time allows: make the dots a box; and figure out a way to make the dots march around when the player wins a round */
 }
 
 #playersHandTitle{
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     text-decoration: underline dotted white 20%;
+    letter-spacing: 5px;
+    margin: 1% 0;
+    height: 100%;
 }
 
 .dealersHandContainer, .playersHandContainer{
@@ -69,24 +87,32 @@ body{
     justify-content: center;
     justify-content: space-evenly;
     flex-direction: row;
+    width: 100%;
+    height: 100%;
+    /* margin: 0 auto; */
 }
 
 .playersButtonsContainer{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+    height: 25px;
+    padding: 2px 0;
+    margin: 1px 0 1px 0;
 }
 
 .actionButtons{
     width: 18%;
+    background-color: 
 }
 
 .dealersHand, .playersHand{
-    width: 25px;
-    height: 40px;
+    width: 50px;
+    height: 65px;
     border: 1.5px solid black;
     padding: 20px;
     margin: 20px 20px;
+    font-size: 10px;
     /* margin: 20px; */
 }
 
