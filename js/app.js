@@ -2,9 +2,10 @@
 document.body.style.backgroundImage = "url('./images/green-felt-background-texture-poker-casino-table.jpeg')";
 document.body.style.backgroundSize = 'cover';
 document.body.style.backgroundRepeat = 'no-repeat';
+let hideGameplayContainer = document.querySelector('.masterGameplayContainer')
+hideGameplayContainer.style.visibility = 'hidden';
 
-//CLASSES
-
+//CLASSES: deck, player, dealer, table (includes pot)
 class MainDeck {
     constructor(deck, suits, cards){
         this.deck = []
@@ -82,11 +83,11 @@ class Table {
 
 const BlackjackTable = new Table('should call upon createPot method result')
 
-//working on a blackjack-type game. Making classes for the player and dealer
-//working on html
-//working on css
+//buttons
 
-//for in loop syntax per mdn (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-    //for (const variable in object) {
-    //statement
-    //}
+document.getElementById('startButton').addEventListener('click', () => {
+    let = getGameplayContainer = document.querySelector('.masterGameplayContainer')
+    getGameplayContainer.style.visibility = 'visible';
+})
+
+document.getElementById('restartButton')
