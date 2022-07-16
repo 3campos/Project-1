@@ -55,7 +55,7 @@ class Player {
     }
 }
 
-const User = new Player(playerName, 'placeHolder for Hand', 'placeHolder for playerMoney')
+const User = new Player('fill in with playerName variable', 'placeHolder for Hand', 'placeHolder for playerMoney')
 
 User.promptForPlayerName()
 User.playerHit()
