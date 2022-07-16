@@ -73,9 +73,12 @@ body{
 
 .playersButtonsContainer{
     display: flex;
-    justify-content: center;
     justify-content: space-evenly;
     flex-direction: row;
+}
+
+.actionButtons{
+    width: 18%;
 }
 
 .dealersHand, .playersHand{
