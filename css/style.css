@@ -61,30 +61,33 @@ body{
 
 #gameName{
     text-align: center;
-    margin: 1% 0 3% 0;
+    margin: 0;
     letter-spacing: 12px;
     font-size: 28px;
-    text-decoration: underline overline solid white 40%;
+    text-decoration: underline solid white 30%;
 }
 
 /*create multiple elements through css for each 'hands' class*/
 
 #dealersHandTitle{
-    text-align: center;
+    width: 150px;
+    text-align: right;
     font-size: 24px;
-    text-decoration: underline dotted white 20%;
-    letter-spacing: 5px;
-    margin: 1% 0;
+    /* text-decoration: underline overline dotted white 20%; */
+    border: dotted white 5px;
+    letter-spacing: 8px;
+    margin: 3% auto 1% auto;
     height: 100%;
     /* if time allows: make the dots a box; and figure out a way to make the dots march around when the player wins a round */
 }
 
 #playersHandTitle{
-    text-align: center;
+    width: 150px;
+    text-align: right;
     font-size: 24px;
-    text-decoration: underline dotted white 20%;
-    letter-spacing: 5px;
-    margin: 1% 0;
+    border: dotted white 5px;
+    letter-spacing: 8px;
+    margin: 2% auto 1% auto;
     height: 100%;
 }
 
