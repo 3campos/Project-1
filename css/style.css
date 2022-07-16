@@ -3,7 +3,33 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h1{
+.umbrellaContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#instructionsTitle{
+    font-size: 24px;
+    padding: 0px;
+    margin: 10px 10px 10px 0px;
+    /*0 is for top-bottom; auto for left-right*/
+}
+
+.instructionsContainer{
+    display: block;
+    flex-direction: column;
+    justify-content: left;
+    /* align-items: flex-start; */
+    /*QUESTION 2 Why isn't justify-content left making the instructions move to the left of my gameplay container?*/
+}
+
+.masterGameplayContainer{
+    display: block;
+    justify-content: right;
+    /* why when I set this to display: block does it not look right but when I change it to display: flex it completely alters the positioning of everything inside into a row?*/
+}
+
+#gameName{
     text-align: center;
 }
 
@@ -45,6 +71,7 @@ h1{
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    /*0 is for top-bottom; auto for left-right*/
 }
 
 #tablePot{
@@ -52,8 +79,14 @@ h1{
     border: 15px solid yellow;
     padding: 50px;
     /* margin: 0px 20px 0px 138px; */
-    /*
-    for 0 auto
-    0 is for top-bottom; auto for left-right
-    */
+    /*    for 0 auto    */
 }
+
+/* 
+Question 1:
+Is there a way to move the instructions box to the left of the gameplay master container that I've created?
+    what i've tried: 
+    step 1. I created a flexbox container for the instructions components and a gameplay master container for everything else. 
+    step 2. I tried to move the instructions box to the left of the gameplay master container with the code block on line 71-75.
+    step 3. I researched stack overflow articles and reviewed the flexbox froggy game to try and 
+*/
