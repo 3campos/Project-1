@@ -154,14 +154,3 @@ body{
     /* margin: 0px 20px 0px 138px; */
     /*    for 0 auto    */
 }
-
-/* 
-Question 1:
-Is there a way to move the instructions box to the left of the gameplay master container that I've created?
-    what i've tried: 
-    step 1. I created a flexbox container for the instructions components and a gameplay master container for everything else. 
-    step 2. I tried to move the instructions box to the left of the gameplay master container with the code block on line 71-75.
-    step 3. I researched stack overflow articles and reviewed the flexbox froggy game to try and 
-*/
-
-/* leetcode and algorithms; bootcamp grads are being beat out at the final round */

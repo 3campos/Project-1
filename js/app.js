@@ -2,8 +2,8 @@
 document.body.style.backgroundImage = "url('./images/green-felt-background-texture-poker-casino-table.jpeg')";
 document.body.style.backgroundSize = 'cover';
 document.body.style.backgroundRepeat = 'no-repeat';
-let hideGameplayContainer = document.querySelector('.masterGameplayContainer')
-hideGameplayContainer.style.visibility = 'hidden';
+const getGameplayContainer = document.querySelector('.masterGameplayContainer')
+getGameplayContainer.style.visibility = 'hidden';
 
 //CLASSES: deck, player, dealer, table (includes pot)
 class MainDeck {
@@ -25,6 +25,37 @@ class MainDeck {
 
 const tableDeck = new MainDeck()
 console.log('tableDeck console.log', tableDeck.deck)
+
+let dealDealersCard1;
+let dealDealersCard2;
+
+function dealCardToDealer (arr) {
+    dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
+    delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
+    // console.log('tableDeck console.log', tableDeck.deck)
+
+    dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
+    delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
+    console.log('tableDeck console.log', tableDeck.deck)
+    
+    console.log('dealers1&2', dealDealersCard1, dealDealersCard2)
+    
+    console.log('afterdealersdeal', tableDeck.deck)
+
+    return dealDealersCard1, dealDealersCard2
+}
+
+console.log(dealCardToDealer(tableDeck.deck))
+
+//https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html
+//I used the delete operator in order to not duplicate the dealing of a card.
+
+
+//order to deal to dealer
+//1st card face up
+//2nd card to the hole
+
+
 
 //the below is a test to access specific card in array console.log(tableDeck.deck[3]). The result is 4 of hearts.
 //console.log(tableDeck.deck[3])
@@ -86,8 +117,19 @@ const BlackjackTable = new Table('should call upon createPot method result')
 //buttons
 
 document.getElementById('startButton').addEventListener('click', () => {
-    let = getGameplayContainer = document.querySelector('.masterGameplayContainer')
     getGameplayContainer.style.visibility = 'visible';
+    //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
 })
 
-document.getElementById('restartButton')
+document.getElementById('restartButton').addEventListener('click', () => {
+        //i tried using my button here to reset the start button's effect.
+    document.getElementById('startButton').reset();
+        //this is the reset method targeting the start button.
+})
+
+//I realized about after spending 30 minutes on this that the reset method only works on forms. Is there a different type of reset function or method that I should use?
+
+//NOTES;
+//https://www.w3schools.com/jsref/met_form_reset.asp
+//Per w3schools, "The reset() method resets the values of all elements in a form (same as clicking the Reset button)."
+//document.getElementById("elementID").reset();
