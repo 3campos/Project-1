@@ -30,19 +30,32 @@ let dealDealersCard1;
 let dealDealersCard2;
 
 function dealCardToDealer (arr) {
-    dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
-    delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
-    // console.log('tableDeck console.log', tableDeck.deck)
+    dealDealersCard1 = delete arr[Math.floor(Math.random() * arr.length)]
+    //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
+    delete dealDealersCard1
+    //this card that was extracted is being deleted. 
+        //THIS IS THE PART THAT I'M STUCK ON. THE DELETE OPERATOR IS NOT DELETING MY VARIABLE'S STORED VALUE THAT I GAVE TO IT ON LINE 33.
+
+    // delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
+    //deleting a random card using the delete operator
+    console.log('tableDeck after deal1 console.log', tableDeck.deck)
 
     dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
-    delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
-    console.log('tableDeck console.log', tableDeck.deck)
+    //getting a random card for second dealt card using math floor and random methods
+    delete dealDealersCard2
+
+    //delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
+    //deleting a random card using the delete operator
+    console.log('tableDeck after deal2 console.log', tableDeck.deck)
     
     console.log('dealers1&2', dealDealersCard1, dealDealersCard2)
-    
+    //test to deal dealer's 1st and 2nd card
+
     console.log('afterdealersdeal', tableDeck.deck)
+    //test to see the deck result after deal.
 
     return dealDealersCard1, dealDealersCard2
+
 }
 
 console.log(dealCardToDealer(tableDeck.deck))
