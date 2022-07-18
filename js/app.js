@@ -28,41 +28,79 @@ console.log('tableDeck console.log', tableDeck.deck)
 
 let dealDealersCard1;
 let dealDealersCard2;
+let extract1stDealersCard;
+let extract2ndDealersCard;
 
-function dealCardToDealer (arr) {
-    dealDealersCard1 = delete arr[Math.floor(Math.random() * arr.length)]
+let dealPlayersCard1;
+let dealPlayersCard2;
+let extract1stPlayersCard;
+let extract2ndPlayersCard;
+
+//FOR OFFICE HOURS
+function dealInitialCards (arr) {
+    dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
-    delete dealDealersCard1
+    extract1stDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
+
+    tableDeck.deck.splice(extract1stDealersCard, 1)
     //this card that was extracted is being deleted. 
-        //THIS IS THE PART THAT I'M STUCK ON. THE DELETE OPERATOR IS NOT DELETING MY VARIABLE'S STORED VALUE THAT I GAVE TO IT ON LINE 33.
+        //THIS IS THE PART THAT I'M STUCK ON. THE DELETE OPERATOR IS NOT DELETING MY VARIABLE'S STORED VALUE THAT I GAVE TO IT ON LINE 33. Instead it's displaying "false" in the console. Why is it not deleting? Try a different approach.
+        //should i be using slice instead? no, try splice because slice will produce a new array. Splice will directly modify the original array.
+
+    //find the index of the card that was randomly chosen; try indexof
+        //then save this value to a variable
+        //tabledeck.deck.splice(, 1) --this will just remove the one card from the index
 
     // delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
     //deleting a random card using the delete operator
-    console.log('tableDeck after deal1 console.log', tableDeck.deck)
+    
 
     dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
-    //getting a random card for second dealt card using math floor and random methods
-    delete dealDealersCard2
+    //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
+    extract2ndDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
 
-    //delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
-    //deleting a random card using the delete operator
-    console.log('tableDeck after deal2 console.log', tableDeck.deck)
+    tableDeck.deck.splice(extract2ndDealersCard, 1)
+
+    dealPlayersCard1 = arr[Math.floor(Math.random() * arr.length)]
+    //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
+    extract1stPlayersCard = tableDeck.deck.indexOf(dealPlayersCard1)
+
+    tableDeck.deck.splice(extract1stPlayersCard, 1)
+
+    dealPlayersCard2 = arr[Math.floor(Math.random() * arr.length)]
+    //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
+    extract2ndPlayersCard = tableDeck.deck.indexOf(dealPlayersCard2)
+
+    tableDeck.deck.splice(extract2ndPlayersCard, 1)
+
+    // dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
+    // //getting a random card for second dealt card using math floor and random methods
+    // delete dealDealersCard2
+
+    // //delete tableDeck.deck[[Math.floor(Math.random() * arr.length)]]
+    // //deleting a random card using the delete operator
+    // console.log('tableDeck after deal2 console.log', tableDeck.deck)
     
-    console.log('dealers1&2', dealDealersCard1, dealDealersCard2)
-    //test to deal dealer's 1st and 2nd card
+    // console.log('dealers1&2', dealDealersCard1, dealDealersCard2)
+    // //test to deal dealer's 1st and 2nd card
 
-    console.log('afterdealersdeal', tableDeck.deck)
-    //test to see the deck result after deal.
+    // console.log('afterdealersdeal', tableDeck.deck)
+    // //test to see the deck result after deal.
 
-    return dealDealersCard1, dealDealersCard2
-
+    // return dealDealersCard1, dealDealersCard2
+    return tableDeck.deck
 }
 
-console.log(dealCardToDealer(tableDeck.deck))
+console.log('dealInitialCards', dealInitialCards(tableDeck.deck))
+
+
 
 //https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html
 //I used the delete operator in order to not duplicate the dealing of a card.
 
+//for resetting
+    //how can i recreate my deck
+    //think about changing all variables back to 0; and all of teh innerhtml's and innertext to blanks.
 
 //order to deal to dealer
 //1st card face up
