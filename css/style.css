@@ -89,6 +89,7 @@ body{
     letter-spacing: 8px;
     margin: 2% auto 1% auto;
     height: 100%;
+    /*if time allows: produce a flashing animation that the player has obtained blackjack b/c this is fun.*/
 }
 
 .dealersHandContainer, .playersHandContainer{

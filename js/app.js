@@ -102,31 +102,43 @@ let extract4thPlayersCard;
 let extract5thPlayersCard;
 
 function dealHitCards (arr) {
+    //PSEUDOCODE: this function is dealing my cards to the player based on the number of times they click the 'hit' button to request another card.
     hitClickCount += 1
+        //this line adds 1 to the hit count variable.
+
+        //below are if functions for the number of hit count clicks. 
+            //1. each if function executes a deal function, dealing a card to the player. 
+            //2. That dealt card id extracted from the original array so that it cannot be re-dealt.
+            //3. The deck (i.e., an array) is returned with the missing cards so that none of hte dealt cards are re-dealt.
     if(hitClickCount === 1){
         dealPlayersCard3 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract3rdPlayersCard = arr.indexOf(dealPlayersCard3)
         tableDeck.deck.splice(extract3rdPlayersCard, 1)
         return console.log(tableDeck.deck), console.log(hitClickCount)
-        //is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+        //QUESTION 1: is the above returning to the system as well as logging to the console? Just curious about whether it's doing both. I researched this but only found stack overflow articles.
     }
     else if(hitClickCount === 2){
         dealPlayersCard4 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract4thPlayersCard = arr.indexOf(dealPlayersCard4)
         tableDeck.deck.splice(extract4thPlayersCard, 1)
         return console.log(tableDeck.deck),console.log(hitClickCount)
-        //is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+        //(repeat of question 1) is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
     }
     else if(hitClickCount === 3){
         dealPlayersCard5 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract5thPlayersCard = arr.indexOf(dealPlayersCard5)
         tableDeck.deck.splice(extract5thPlayersCard, 1)
         return console.log(tableDeck.deck), console.log(hitClickCount)
-        //is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
-        //PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the destructuring assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-            //step 1: add numerical values to each card in an array above for each card.
-    }//By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
+        //(repeat of question 1) is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+        
+    }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
 }
+
+//PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the destructuring assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+            //step 1: add numerical values to each card in an array above for each card.
+            //step 2: sum up those values to the playersHand variable. 
+                //When player hits 3 on the hit click count OR the values equal 21, then grant the player a 'blackjack'.
+
 
 //https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html
 //I used the delete operator in order to not duplicate the dealing of a card.
