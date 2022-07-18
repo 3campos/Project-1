@@ -134,10 +134,57 @@ function dealHitCards (arr) {
     }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
 }
 
-//PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the destructuring assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+//PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the p assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
             //step 1: add numerical values to each card in an array above for each card.
             //step 2: sum up those values to the playersHand variable. 
                 //When player hits 3 on the hit click count OR the values equal 21, then grant the player a 'blackjack'.
+
+
+/* (this is the full array of cards that I can use, per my console log on line 27, that I can use for destructuring).
+
+(52) 
+//HEARTS
+
+LINE 1
+['Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', 
+
+LINE2
+'6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 
+
+LINE3
+'Queen of Hearts', 'King of Hearts', 
+
+//SPADES
+LINE 1
+'Ace of Spades', '2 of Spades', '3 of Spades', '4 of Spades', '5 of Spades', '6 of Spades', 
+
+LINE 2
+'7 of Spades', '8 of Spades', '9 of Spades', '10 of Spades', 'Jack of Spades',
+
+LINE 3
+'Queen of Spades', 'King of Spades', 
+
+CLUBS
+LINE 1
+'Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', 
+
+LINE 2
+'5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs', '10 of Clubs', 
+
+LINE 3
+'Jack of Clubs', 'Queen of Clubs', 'King of Clubs', 
+
+DIAMONDS
+LINE 1
+'Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4 of Diamonds', '5 of Diamonds', 
+LINE 2
+'6 of Diamonds', '7 of Diamonds', '8 of Diamonds', '9 of Diamonds', '10 of Diamonds', 
+
+LINE 3
+'Jack of Diamonds', 'Queen of Diamonds', 'King of Diamonds']
+
+*/
+
 
 
 //https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html
