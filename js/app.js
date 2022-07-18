@@ -93,7 +93,40 @@ function dealInitialCards (arr) {
 
 console.log('dealInitialCards', dealInitialCards(tableDeck.deck))
 
+let hitClickCount = 0;
+let dealPlayersCard3;
+let dealPlayersCard4;
+let dealPlayersCard5;
+let extract3rdPlayersCard;
+let extract4thPlayersCard;
+let extract5thPlayersCard;
 
+function dealHitCards (arr) {
+    hitClickCount += 1
+    if(hitClickCount === 1){
+        dealPlayersCard3 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
+        extract3rdPlayersCard = arr.indexOf(dealPlayersCard3)
+        tableDeck.deck.splice(extract3rdPlayersCard, 1)
+        return console.log(tableDeck.deck), console.log(hitClickCount)
+        //is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+    }
+    else if(hitClickCount === 2){
+        dealPlayersCard4 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
+        extract4thPlayersCard = arr.indexOf(dealPlayersCard4)
+        tableDeck.deck.splice(extract4thPlayersCard, 1)
+        return console.log(tableDeck.deck),console.log(hitClickCount)
+        //is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+    }
+    else if(hitClickCount === 3){
+        dealPlayersCard5 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
+        extract5thPlayersCard = arr.indexOf(dealPlayersCard5)
+        tableDeck.deck.splice(extract5thPlayersCard, 1)
+        return console.log(tableDeck.deck), console.log(hitClickCount)
+        //is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+        //PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the destructuring assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+            //step 1: add numerical values to each card in an array above for each card.
+    }//By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
+}
 
 //https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html
 //I used the delete operator in order to not duplicate the dealing of a card.
@@ -177,6 +210,8 @@ document.getElementById('restartButton').addEventListener('click', () => {
     document.getElementById('startButton').reset();
         //this is the reset method targeting the start button.
 })
+
+document.getElementById('hit').addEventListener('click', () => {dealHitCards(tableDeck.deck)})
 
 //I realized about after spending 30 minutes on this that the reset method only works on forms. Is there a different type of reset function or method that I should use?
 
