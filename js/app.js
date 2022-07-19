@@ -26,6 +26,16 @@ class MainDeck {
 const tableDeck = new MainDeck()
 console.log('tableDeck console.log', tableDeck.deck)
 
+
+for (let i = 0; i < tableDeck.deck.length; i++){
+    if (tableDeck.deck[i].startsWith('A')){
+    //console.log(i=1); THIS ALMOST MADE CHROME EXPLODE.
+    //console.log([i]=1); //ERROR: ILLEGAL RETURN STATEMENT
+    }
+}
+
+//try storing all 3 in an object, 
+
 let dealDealersCard1;
 let dealDealersCard2;
 let extract1stDealersCard;
@@ -114,23 +124,24 @@ function dealHitCards (arr) {
         dealPlayersCard3 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract3rdPlayersCard = arr.indexOf(dealPlayersCard3)
         tableDeck.deck.splice(extract3rdPlayersCard, 1)
-        return console.log(tableDeck.deck), console.log(hitClickCount)
+        return tableDeck.deck
         //QUESTION 1: is the above returning to the system as well as logging to the console? Just curious about whether it's doing both. I researched this but only found stack overflow articles.
+            //answer: delete them. console logs should be removed by final product.
+        //codecademy definition: console log = print to the console
+            //return - is a call to pass some value back up to where the call was made.
+
     }
     else if(hitClickCount === 2){
         dealPlayersCard4 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract4thPlayersCard = arr.indexOf(dealPlayersCard4)
         tableDeck.deck.splice(extract4thPlayersCard, 1)
-        return console.log(tableDeck.deck),console.log(hitClickCount)
-        //(repeat of question 1) is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
+        return tableDeck.deck
     }
     else if(hitClickCount === 3){
         dealPlayersCard5 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract5thPlayersCard = arr.indexOf(dealPlayersCard5)
         tableDeck.deck.splice(extract5thPlayersCard, 1)
-        return console.log(tableDeck.deck), console.log(hitClickCount)
-        //(repeat of question 1) is the above returning to the system as well as logging to the console? Just curious about whether  it's doing both.
-        
+        return tableDeck.deck    
     }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
 }
 
@@ -142,11 +153,43 @@ function dealHitCards (arr) {
 
 /* (this is the full array of cards that I can use, per my console log on line 27, that I can use for destructuring).
 
+//ARRAYS
+
+MDN DOCS EXAMPLE: 
+
+let a, b, rest;
+[a, b] = [10, 20];
+
+console.log(a);
+// expected output: 10
+
+console.log(b);
+// expected output: 20
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+
+console.log(rest);
+// expected output: Array [30,40,50]
+
+MY WORK:
+ORIGINAL ARRAY: 
+['Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', '6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 'Queen of Hearts', 'King of Hearts', 'Ace of Spades', '2 of Spades', '3 of Spades', '4 of Spades', '5 of Spades', '6 of Spades', '7 of Spades', '8 of Spades', '9 of Spades', '10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades', 'Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs', '10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs', 'Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4 of Diamonds', '5 of Diamonds', '6 of Diamonds', '7 of Diamonds', '8 of Diamonds', '9 of Diamonds', '10 of Diamonds', 'Jack of Diamonds', 'Queen of Diamonds', 'King of Diamonds']
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+
 (52) 
 //HEARTS
 
+
+for (let i = 0; i < tableDeck.deck.length; i++){
+    if (tableDeck.deck[i].startsWith('A')){
+  console.log('FOUND ACE')
+}
+
 LINE 1
 ['Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', 
+
+let 
 
 LINE2
 '6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 
