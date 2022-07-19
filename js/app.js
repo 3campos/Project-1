@@ -36,6 +36,58 @@ let dealPlayersCard2;
 let extract1stPlayersCard;
 let extract2ndPlayersCard;
 
+class Player {
+    constructor(name, playerHand, playerMoney){
+        this.name = name
+        this.playerHand = playerHand
+        this.playerMoney = playerMoney
+    }
+    promptForPlayerName(){
+        // if (playerName != null) {
+        // // document.getElementById('namePlayer').innerText = `${playerName}`
+        //     }
+        console.log('COMPLETE promptForPlayerName')}
+    playerHit(){
+        console.log('COMPLETE playerHit')
+    }
+    playerBetAmount(){
+        console.log('COMPLETE playerBetAmount')
+    }
+    playerMoneyMethod(){
+        console.log('COMPLETE playerMoneyMethod')
+    }
+}
+
+const user = new Player('fill in with playerName variable', 0, `$${0}`)
+
+user.promptForPlayerName()
+user.playerHit()
+user.playerBetAmount()
+user.playerMoneyMethod()
+
+class Dealer {
+    constructor(name, dealerHand){
+        this.name = name
+        this.dealerHand = dealerHand
+    }
+}
+
+const mrHouse = new Dealer('Mr. House', 0)
+
+class Table {
+    constructor(pot){
+        this.pot = pot
+    }
+    createPot(){
+        console.log('COMPLETE createPot')
+        //this method should call upon the function User.playerBetAmount because that is what will create the pot. Maybe I can just assign createPot() to this.pot.
+    }
+}
+
+const BlackjackTable = new Table('should call upon createPot method result')
+
+
+
 //MASTER PLAN
     //assign values to cards when they're dealt
     //use if/else if statements, e.g., if card contains 2, the value is 2.
@@ -46,7 +98,6 @@ let extract2ndPlayersCard;
 
 //EXAMPLE OF INDEXOF STRUCTURE: https://www.techonthenet.com/js/string_indexof.php
         // var totn_string = 'TechOnTheNet';
-
         // console.log(totn_string.indexOf('The'));
 
 function dealInitialCards (arr) {
@@ -54,6 +105,28 @@ function dealInitialCards (arr) {
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
     tableDeck.deck.splice(extract1stDealersCard, 1)
+        if (dealDealersCard1.startsWith("A")){
+        mrHouse.dealerHand += 1
+        } else if (dealDealersCard1.startsWith("2")){
+        mrHouse.dealerHand += 2
+        } else if (dealDealersCard1.startsWith("3")){
+        mrHouse.dealerHand +=3
+        } else if (dealDealersCard1.startsWith("4")){
+        mrHouse.dealerHand += 4
+        } else if (dealDealersCard1.startsWith("5")){
+        mrHouse.dealerHand += 5
+        } else if (dealDealersCard1.startsWith("6")){
+        mrHouse.dealerHand += 6
+        } else if (dealDealersCard1.startsWith("7")){
+        mrHouse.dealerHand += 7
+        } else if (dealDealersCard1.startsWith("8")){
+        mrHouse.dealerHand += 8
+        } else if (dealDealersCard1.startsWith("9")){
+        mrHouse.dealerHand += 9
+        } else if (dealDealersCard1.startsWith("10") || dealDealersCard1.startsWith("Jack") || dealDealersCard1.startsWith("Queen") || dealDealersCard1.startsWith("King")){
+        mrHouse.dealerHand += 10
+        }
+
     //this card that was extracted is being deleted. 
         //THIS IS THE PART THAT I'M STUCK ON. THE DELETE OPERATOR IS NOT DELETING MY VARIABLE'S STORED VALUE THAT I GAVE TO IT ON LINE 33. Instead it's displaying "false" in the console. Why is it not deleting? Try a different approach.
         //should i be using slice instead? no, try splice because slice will produce a new array. Splice will directly modify the original array.
@@ -69,21 +142,81 @@ function dealInitialCards (arr) {
     dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract2ndDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
-
     tableDeck.deck.splice(extract2ndDealersCard, 1)
+
+    if (dealDealersCard2.startsWith("A")){
+        mrHouse.dealerHand += 1
+        } else if (dealDealersCard2.startsWith("2")){
+        mrHouse.dealerHand += 2
+        } else if (dealDealersCard2.startsWith("3")){
+        mrHouse.dealerHand +=3
+        } else if (dealDealersCard2.startsWith("4")){
+        mrHouse.dealerHand += 4
+        } else if (dealDealersCard2.startsWith("5")){
+        mrHouse.dealerHand += 5
+        } else if (dealDealersCard2.startsWith("6")){
+        mrHouse.dealerHand += 6
+        } else if (dealDealersCard2.startsWith("7")){
+        mrHouse.dealerHand += 7
+        } else if (dealDealersCard2.startsWith("8")){
+        mrHouse.dealerHand += 8
+        } else if (dealDealersCard2.startsWith("9")){
+        mrHouse.dealerHand += 9
+        } else if (dealDealersCard2.startsWith("10") || dealDealersCard2.startsWith("Jack") || dealDealersCard2.startsWith("Queen") || dealDealersCard2.startsWith("King")){
+        mrHouse.dealerHand += 10
+        }
 
     dealPlayersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stPlayersCard = tableDeck.deck.indexOf(dealPlayersCard1)
-
     tableDeck.deck.splice(extract1stPlayersCard, 1)
+    if (dealPlayersCard1.startsWith("A")){
+        user.playerHand += 1
+        } else if (dealPlayersCard1.startsWith("2")){
+        user.playerHand += 2
+        } else if (dealPlayersCard1.startsWith("3")){
+        user.playerHand +=3
+        } else if (dealPlayersCard1.startsWith("4")){
+        user.playerHand += 4
+        } else if (dealPlayersCard1.startsWith("5")){
+        user.playerHand += 5
+        } else if (dealPlayersCard1.startsWith("6")){
+        user.playerHand += 6
+        } else if (dealPlayersCard1.startsWith("7")){
+        user.playerHand += 7
+        } else if (dealDealersCard1.startsWith("8")){
+        user.playerHand += 8
+        } else if (dealDealersCard1.startsWith("9")){
+        user.playerHand += 9
+        } else if (dealPlayersCard1.startsWith("10") || dealPlayersCard1.startsWith("Jack") || dealPlayersCard1.startsWith("Queen") || dealPlayersCard1.startsWith("King")){
+        user.playerHand += 10
+        }
 
     dealPlayersCard2 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract2ndPlayersCard = tableDeck.deck.indexOf(dealPlayersCard2)
-
     tableDeck.deck.splice(extract2ndPlayersCard, 1)
-
+    if (dealPlayersCard2.startsWith("A")){
+        user.playerHand += 1
+        } else if (dealPlayersCard2.startsWith("2")){
+        user.playerHand += 2
+        } else if (dealPlayersCard2.startsWith("3")){
+        user.playerHand +=3
+        } else if (dealPlayersCard2.startsWith("4")){
+        user.playerHand += 4
+        } else if (dealPlayersCard2.startsWith("5")){
+        user.playerHand += 5
+        } else if (dealPlayersCard2.startsWith("6")){
+        user.playerHand += 6
+        } else if (dealPlayersCard2.startsWith("7")){
+        user.playerHand += 7
+        } else if (dealPlayersCard2.startsWith("8")){
+        user.playerHand += 8
+        } else if (dealPlayersCard2.startsWith("9")){
+        user.playerHand += 9
+        } else if (dealPlayersCard2.startsWith("10") || dealPlayersCard2.startsWith("Jack") || dealPlayersCard2.startsWith("Queen") || dealPlayersCard2.startsWith("King")){
+        user.playerHand += 10
+        }
     // dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
     // //getting a random card for second dealt card using math floor and random methods
     // delete dealDealersCard2
@@ -99,10 +232,29 @@ function dealInitialCards (arr) {
     // //test to see the deck result after deal.
 
     // return dealDealersCard1, dealDealersCard2
-    return tableDeck.deck
+    return tableDeck.deck, user.playerHand, mrHouse.dealerHand
 }
 
+
+
 console.log('dealInitialCards', dealInitialCards(tableDeck.deck))
+console.log(dealPlayersCard1, dealPlayersCard2)
+console.log('firstdealresults', user.playerHand)
+    //QUESTION: why won't all of my players' card values add properly based on my if functions above?
+    //9 of hearts and 8 of spades resulted in '8'.
+    //9 of hearts and jack of clubs resulted in '10'.
+    //9 of diamonds and 3 of hearts resulted in '3'.
+    //8 of hearts and 9 of diamonds resulted in 9.
+    //8 of hearts and queen of diamonds resulted in '8'
+    //8 of diamonds and ace of diamonds resulted in '1'
+    //8 of spades and 5 of hearts results in '5'
+    //8 of spades and 7 of clubs resulted in 7.
+    //8 of spades and ace of diamonds resulted in 1.
+    //8 of hearts and 3 of clubs resulted in 3.
+    //queen of spades and jack of hearts resulted in 19.
+    //king of clubs and ace of spades resulted in 10.
+    
+
 
 let hitClickCount = 0;
 let dealPlayersCard3;
@@ -145,6 +297,22 @@ function dealHitCards (arr) {
         return tableDeck.deck    
     }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
 }
+
+
+//buttons
+
+document.getElementById('startButton').addEventListener('click', () => {
+    getGameplayContainer.style.visibility = 'visible';
+    //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
+})
+
+document.getElementById('restartButton').addEventListener('click', () => {
+        //i tried using my button here to reset the start button's effect.
+    document.getElementById('startButton').reset();
+        //this is the reset method targeting the start button.
+})
+
+document.getElementById('hit').addEventListener('click', () => {dealHitCards(tableDeck.deck)})
 
 //PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the p assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
             //step 1: add numerical values to each card in an array above for each card.
@@ -252,69 +420,12 @@ LINE 3
 console.log('remember to turn prompt back on')
 
 // const playerName = 'Bond ... James Bond';
-class Player {
-    constructor(name, playerHand, playerMoney){
-        this.name = name
-        this.playerHand = playerHand
-        this.playerMoney = playerMoney
-    }
-    promptForPlayerName(){
-        // if (playerName != null) {
-        // // document.getElementById('namePlayer').innerText = `${playerName}`
-        //     }
-        console.log('COMPLETE promptForPlayerName')}
-    playerHit(){
-        console.log('COMPLETE playerHit')
-    }
-    playerBetAmount(){
-        console.log('COMPLETE playerBetAmount')
-    }
-    playerMoneyMethod(){
-        console.log('COMPLETE playerMoneyMethod')
-    }
-}
 
-const User = new Player('fill in with playerName variable', 'placeHolder for Hand', 'placeHolder for playerMoney')
 
-User.promptForPlayerName()
-User.playerHit()
-User.playerBetAmount()
-User.playerMoneyMethod()
 
-class Dealer {
-    constructor(name){
-        this.name = name
-    }
-}
 
-const mrHouse = new Dealer('Mr. House')
 
-class Table {
-    constructor(pot){
-        this.pot = pot
-    }
-    createPot(){
-        console.log('COMPLETE createPot')
-        //this method should call upon the function User.playerBetAmount because that is what will create the pot. Maybe I can just assign createPot() to this.pot.
-    }
-}
 
-const BlackjackTable = new Table('should call upon createPot method result')
-
-//buttons
-
-document.getElementById('startButton').addEventListener('click', () => {
-    getGameplayContainer.style.visibility = 'visible';
-    //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
-})
-
-document.getElementById('restartButton').addEventListener('click', () => {
-        //i tried using my button here to reset the start button's effect.
-    document.getElementById('startButton').reset();
-        //this is the reset method targeting the start button.
-})
-
-document.getElementById('hit').addEventListener('click', () => {dealHitCards(tableDeck.deck)})
 
 //I realized about after spending 30 minutes on this that the reset method only works on forms. Is there a different type of reset function or method that I should use?
 
@@ -324,20 +435,60 @@ document.getElementById('hit').addEventListener('click', () => {dealHitCards(tab
 //document.getElementById("elementID").reset();
 
 
-//FAILED CODE
+
+//CODE GRAVEYARD
 
 //tried pushing values into card strings using destructuring
-let heartsSuitCards = tableDeck.deck.indexOf('Ace of Spades', 0)
-let deckWithImages = []
+// let heartsSuitCards = tableDeck.deck.indexOf('Ace of Spades', 0)
+// let deckWithImages = []
 
-for (let i = 0, j = 0; i < heartsSuitCards, j < 12; i++, j++){
-    //console.log(tableDeck.deck[i]) 
-    //this one is successful!    
-        //PLAN:push i value into array representing destructuring assignment
-        (deckWithImages.push([i] = [j]))
-        //(this.deck.push(`${this.cards[card]} of ${this.suits[suit]}`))
-    // console.log(i=1); THIS ALMOST MADE CHROME EXPLODE.
-    // console.log([i]=1); //ERROR: ILLEGAL RETURN STATEMENT
-    }
+// // for (let i = 0, j = 0; i < heartsSuitCards, j < 12; i++, j++){
+// for (let i = 0; i < heartsSuitCards; i++){
+//     //console.log(tableDeck.deck[i]) 
+//     //this one is successful!    
+//         //PLAN:push i value into array representing destructuring assignment
+//         (deckWithImages.push(tableDeck.deck[i]))
+//         //(this.deck.push(`${this.cards[card]} of ${this.suits[suit]}`))
+//     // console.log(i=1); THIS ALMOST MADE CHROME EXPLODE.
+//     // console.log([i]=1); //ERROR: ILLEGAL RETURN STATEMENT
+//     }
 
-    console.log(deckWithImages)
+// console.log(deckWithImages)
+
+// // const valuesForCards = []
+// // for (let j = 1; j < 13; j++){
+// //     (valuesForCards.push(j))
+// // }
+// // console.log(valuesForCards)
+
+// deckWithImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
+
+// console.log(tableDeck.deck[12])
+
+// let heartsSuitCards = tableDeck.deck.indexOf('Ace of Spades', 0)
+// let deckWithImages = []
+
+// for (let i = 0, j = 0; i < heartsSuitCards, j < 12; i++, j++){
+
+
+// for (let i = 0; i < heartsSuitCards; i++){
+//     //console.log(tableDeck.deck[i]) 
+//     //this one is successful!    
+//         //PLAN:push i value into array representing destructuring assignment
+//         (deckWithImages.push(tableDeck.deck[i]))
+//         //(this.deck.push(`${this.cards[card]} of ${this.suits[suit]}`))
+//     // console.log(i=1); THIS ALMOST MADE CHROME EXPLODE.
+//     // console.log([i]=1); //ERROR: ILLEGAL RETURN STATEMENT
+//     }
+
+// console.log(deckWithImages)
+
+// // const valuesForCards = []
+// // for (let j = 1; j < 13; j++){
+// //     (valuesForCards.push(j))
+// // }
+// // console.log(valuesForCards)
+
+// deckWithImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
+
+// console.log(tableDeck.deck[12], deckWithImages[11])
