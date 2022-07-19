@@ -20,21 +20,11 @@ class MainDeck {
         //I am pushing the results of the two for in loops into the deck array that i created above. The 'suit' and the 'card' variables represent the iterators for the suits and cards arrays, respectively.
             }
         }
-}
+    }
 }
 
 const tableDeck = new MainDeck()
 console.log('tableDeck console.log', tableDeck.deck)
-
-
-for (let i = 0; i < tableDeck.deck.length; i++){
-    if (tableDeck.deck[i].startsWith('A')){
-    //console.log(i=1); THIS ALMOST MADE CHROME EXPLODE.
-    //console.log([i]=1); //ERROR: ILLEGAL RETURN STATEMENT
-    }
-}
-
-//try storing all 3 in an object, 
 
 let dealDealersCard1;
 let dealDealersCard2;
@@ -46,12 +36,23 @@ let dealPlayersCard2;
 let extract1stPlayersCard;
 let extract2ndPlayersCard;
 
-//FOR OFFICE HOURS
+//MASTER PLAN
+    //assign values to cards when they're dealt
+    //use if/else if statements, e.g., if card contains 2, the value is 2.
+        //to get image, use a similar approach for the suits' images.
+    //have an array of objects that holds the images for the suits.
+        //object: name of card: image path;
+            //look into switch cases as a last resort
+
+//EXAMPLE OF INDEXOF STRUCTURE: https://www.techonthenet.com/js/string_indexof.php
+        // var totn_string = 'TechOnTheNet';
+
+        // console.log(totn_string.indexOf('The'));
+
 function dealInitialCards (arr) {
     dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
-
     tableDeck.deck.splice(extract1stDealersCard, 1)
     //this card that was extracted is being deleted. 
         //THIS IS THE PART THAT I'M STUCK ON. THE DELETE OPERATOR IS NOT DELETING MY VARIABLE'S STORED VALUE THAT I GAVE TO IT ON LINE 33. Instead it's displaying "false" in the console. Why is it not deleting? Try a different approach.
@@ -321,3 +322,22 @@ document.getElementById('hit').addEventListener('click', () => {dealHitCards(tab
 //https://www.w3schools.com/jsref/met_form_reset.asp
 //Per w3schools, "The reset() method resets the values of all elements in a form (same as clicking the Reset button)."
 //document.getElementById("elementID").reset();
+
+
+//FAILED CODE
+
+//tried pushing values into card strings using destructuring
+let heartsSuitCards = tableDeck.deck.indexOf('Ace of Spades', 0)
+let deckWithImages = []
+
+for (let i = 0, j = 0; i < heartsSuitCards, j < 12; i++, j++){
+    //console.log(tableDeck.deck[i]) 
+    //this one is successful!    
+        //PLAN:push i value into array representing destructuring assignment
+        (deckWithImages.push([i] = [j]))
+        //(this.deck.push(`${this.cards[card]} of ${this.suits[suit]}`))
+    // console.log(i=1); THIS ALMOST MADE CHROME EXPLODE.
+    // console.log([i]=1); //ERROR: ILLEGAL RETURN STATEMENT
+    }
+
+    console.log(deckWithImages)
