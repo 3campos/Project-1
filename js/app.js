@@ -184,9 +184,9 @@ function dealInitialCards (arr) {
         user.playerHand += 6
         } else if (dealPlayersCard1.startsWith("7")){
         user.playerHand += 7
-        } else if (dealDealersCard1.startsWith("8")){
+        } else if (dealPlayersCard1.startsWith("8")){
         user.playerHand += 8
-        } else if (dealDealersCard1.startsWith("9")){
+        } else if (dealPlayersCard1.startsWith("9")){
         user.playerHand += 9
         } else if (dealPlayersCard1.startsWith("10") || dealPlayersCard1.startsWith("Jack") || dealPlayersCard1.startsWith("Queen") || dealPlayersCard1.startsWith("King")){
         user.playerHand += 10
@@ -232,29 +232,54 @@ function dealInitialCards (arr) {
     // //test to see the deck result after deal.
 
     // return dealDealersCard1, dealDealersCard2
-    return tableDeck.deck, user.playerHand, mrHouse.dealerHand
+    // return tableDeck.deck, user.playerHand, mrHouse.dealerHand
 }
 
 
 
 console.log('dealInitialCards', dealInitialCards(tableDeck.deck))
 console.log(dealPlayersCard1, dealPlayersCard2)
-console.log('firstdealresults', user.playerHand)
-    //QUESTION: why won't all of my players' card values add properly based on my if functions above?
+console.log('FIRSTDEALRESULTS', user.playerHand)
+    //QUESTION: why won't all of my players' card values add properly based on my if functions above? The cards that don't appear to add to my playerhand variable are 8, 9, and at least some of my face cards?
+//when 8 or 9 is my first card, the addition to my playerHand variable does not work properly:
     //9 of hearts and 8 of spades resulted in '8'.
+    //9 of hearts and 6 of hearts resulted in '6'.
     //9 of hearts and jack of clubs resulted in '10'.
     //9 of diamonds and 3 of hearts resulted in '3'.
+    //9 of clubs and 3 of diamonds resulted in '3'.
+    
     //8 of hearts and 9 of diamonds resulted in 9.
     //8 of hearts and queen of diamonds resulted in '8'
     //8 of diamonds and ace of diamonds resulted in '1'
     //8 of spades and 5 of hearts results in '5'
     //8 of spades and 7 of clubs resulted in 7.
     //8 of spades and ace of diamonds resulted in 1.
+    //8 of spades and jack of hearts resulted in 10.
     //8 of hearts and 3 of clubs resulted in 3.
-    //queen of spades and jack of hearts resulted in 19.
-    //king of clubs and ace of spades resulted in 10.
-    
 
+//okay, I figured this out after 1.5 hours of debugging. I had the wrong variable in my above functions.
+
+//BUT: when 8 or 9 is the second card, the addition to my playerHand variable works fine:
+    //Ace of hearts and 9 of spades resulted in '10'.
+    //10 of hearts and 9 of diamonds resulted in '19'.
+    //8 of hearts and 9 of hearts resulted in '9'.
+    //10 of hearts and 9 of hearts resulted in '19'.
+
+    //ace of spades and 8 of clubs resulted in 9.
+    //4 of spades and 8 of clubs resulted in 12.
+    //6 of diamonds and 8 of clubs resulted in 14
+//ignore: i resolved this today.
+
+//Sometimes, my face cards add correctly and sometimes they do not like below:
+    //queen of spades and jack of hearts resulted in 19.
+    //jack of clubs and queen of hearts resulted in 19
+    //king of clubs and ace of spades resulted in 10.
+    //king of clubs and 9 of diamonds resulted in 17.
+        //TESTING, SIMILAR: king of clubs and 7 of clubs resulted in 17.
+    //jack of clubs and 7 of diamonds resulted in 16.
+        //TESTING, EXACT: I FIXED IT!: JACK OF CLUBS AND 7 OF DIAMONDS RESULTED IN 17.
+    //king of spades and jack of spades resulted in 19
+    //queen of diamonds and 10 of clubs resulted in 19
 
 let hitClickCount = 0;
 let dealPlayersCard3;
