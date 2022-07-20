@@ -59,7 +59,7 @@ const diamondsStrings = ['Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4
 // const queens = 10
 // const kings = 10
 
-const allCardValues = ['Ace', '2', "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "Kings"]
+const allCardValues = ['Ace', '2', "3", "4", "5", "6", "7", "8", "9", "10", 'Jack', 'Queen', 'King']
 
 let dealerCard1Style = document.getElementById('dealerCard1').style
 let dealerCard2Style = document.getElementById('dealerCard2').style
@@ -160,7 +160,7 @@ function dealInitialCards (arr) {
             //arrow function to find a string and execute a function
             if(element.includes(allCardValues[0])){
                 //if function indicating that if the string includes 'Ace', then the below code block is executed.
-                document.getElementById('dealerCard1').innerText = '1'
+                document.getElementById('dealerCard1').innerText = 'A'
                 //grab the fifth dealer card (the first one dealt) from the DOM. Then, add as innertext = 1.
                     //THIS PART IS NOT WORKING. THE TEXT IS NOT SHOWING UP ON THE WEBPAGE. Why is the innertext not displaying on teh webpage despite me writing everything correctly here?
                 dealerCard1Style.backgroundColor='white'
@@ -232,15 +232,29 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        } else if (dealDealersCard1.startsWith("10") || dealDealersCard1.startsWith("Jack") || dealDealersCard1.startsWith("Queen") || dealDealersCard1.startsWith("King")){
+        }
+        //need to separate the below out
+        else if (dealDealersCard1.startsWith("10") || dealDealersCard1.startsWith("Jack") || dealDealersCard1.startsWith("Queen") || dealDealersCard1.startsWith("King")){
         mrHouse.dealerHand += 10
         match = tableDeck.deck.find(element => {
-            if(element.includes(allCardValues[9, 10, 11, 12])){
+            if(element.includes(allCardValues[9])){
                 document.getElementById('dealerCard1').innerText = '10'
                 dealerCard1Style.backgroundColor='white'
+            } else if (element.includes(allCardValues[10])){
+                document.getElementById('dealerCard1').innerText = 'J'
+                dealerCard1Style.backgroundColor='white'
+            } else if (element.includes(allCardValues[11])){
+                document.getElementById('dealerCard1').innerText = 'Q'
+                dealerCard1Style.backgroundColor='white'
+            } 
+            else if (element.includes(allCardValues[12])){
+                document.getElementById('dealerCard1').innerText = 'K'
+                dealerCard1Style.backgroundColor='white'
             }
-        })
+            })
         }
+
+
 
     //this card that was extracted is being deleted. 
         //THIS IS THE PART THAT I'M STUCK ON. THE DELETE OPERATOR IS NOT DELETING MY VARIABLE'S STORED VALUE THAT I GAVE TO IT ON LINE 33. Instead it's displaying "false" in the console. Why is it not deleting? Try a different approach.
