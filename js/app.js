@@ -11,6 +11,7 @@ class MainDeck {
         this.deck = []
         this.suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
         this.cards = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King']
+        this.cardImages = []
     for (let suit in this.suits){
         //this for in loop uses a suit variable (declared with let) representing the iteration through the suits array.
         for (let card in this.cards){
@@ -23,8 +24,50 @@ class MainDeck {
     }
 }
 
+//2 options:
+//have 52 images of 52 cards
+
+//MASTER PLAN EXCERPT
+    //1.have an array of objects that holds the images for the suits.
+        //e.g. object: name of card: image path;
+        //should I use images or emojis for the cards? Emoji examples are below.
+            //🂡 🂴
+                //even if i use emojis, an object is probably still best, correct?
+            //look into switch cases as a last resort
+
+
 const tableDeck = new MainDeck()
 console.log('tableDeck console.log', tableDeck.deck)
+
+tableDeck.deck
+const heartsStrings = ['Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', '6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 'Queen of Hearts', 'King of Hearts']
+const spadesStrings = ['Ace of Spades', '2 of Spades', '3 of Spades', '4 of Spades', '5 of Spades', '6 of Spades', '7 of Spades', '8 of Spades', '9 of Spades', '10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades']
+const clubsStrings = ['Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs', '10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs']
+const diamondsStrings = ['Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4 of Diamonds', '5 of Diamonds', '6 of Diamonds', '7 of Diamonds', '8 of Diamonds', '9 of Diamonds', '10 of Diamonds', 'Jack of Diamonds', 'Queen of Diamonds', 'King of Diamonds']
+
+// const aces = 1
+// const twos = 2
+// const threes = 3
+// const fours = 4
+// const fives = 5
+// const sixes = 6
+// const sevens = 7
+// const eights = 8
+// const nines = 9
+// const tens = 10
+// const jacks = 10
+// const queens = 10
+// const kings = 10
+
+const allCardValues = ['Ace', '2', "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "Kings"]
+
+let dealerCard1Style = document.getElementById('dealerCard1').style
+let dealerCard2Style = document.getElementById('dealerCard2').style
+let dealerCard3Style = document.getElementById('dealerCard3').style
+let dealerCard4Style = document.getElementById('dealerCard4').style
+let dealerCard5Style = document.getElementById('dealerCard5').style
+
+let match;
 
 let dealDealersCard1;
 let dealDealersCard2;
@@ -89,11 +132,14 @@ const BlackjackTable = new Table('should call upon createPot method result')
 
 
 //MASTER PLAN
-    //assign values to cards when they're dealt
-    //use if/else if statements, e.g., if card contains 2, the value is 2.
-        //to get image, use a similar approach for the suits' images.
-    //have an array of objects that holds the images for the suits.
-        //object: name of card: image path;
+    //1. assign values to cards when they're dealt= DONE!
+        //a. use if/else if statements, e.g., if card contains 2, the value is 2. = DONE!
+        //b. to get image, use a similar approach for the suits' images.
+    //2. have an array of objects that holds the images for the suits.
+        //e.g. object: name of card: image path;
+        //should I use images or emojis for the cards? Emoji examples are below.
+            //🂡 🂴
+                //even if i use emojis, an object is probably still best, correct?
             //look into switch cases as a last resort
 
 //EXAMPLE OF INDEXOF STRUCTURE: https://www.techonthenet.com/js/string_indexof.php
@@ -104,27 +150,96 @@ function dealInitialCards (arr) {
     dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
+    //getting the index of the card randomly dealt.
     tableDeck.deck.splice(extract1stDealersCard, 1)
+    //extracting the randomly dealt card from the array
         if (dealDealersCard1.startsWith("A")){
         mrHouse.dealerHand += 1
+        //add a variable name and equal sign before tabledeck.deck of each funciton if the below function doesn't work: 'match ='
+        match = tableDeck.deck.find(element => {
+            //arrow function to find a string and execute a function
+            if(element.includes(allCardValues[0])){
+                //if function indicating that if the string includes 'Ace', then the below code block is executed.
+                document.getElementById('dealerCard1').innerText = '1'
+                //grab the fifth dealer card (the first one dealt) from the DOM. Then, add as innertext = 1.
+                    //THIS PART IS NOT WORKING. THE TEXT IS NOT SHOWING UP ON THE WEBPAGE. Why is the innertext not displaying on teh webpage despite me writing everything correctly here?
+                dealerCard1Style.backgroundColor='white'
+                //add backgroundcolor = white to the card.
+                    //THIS PART IS WORKING. IT'S FILLING THE BACKGROUND COLOR OF THE CARD WITH A WHITE COLOR.
+            }
+        })
         } else if (dealDealersCard1.startsWith("2")){
         mrHouse.dealerHand += 2
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[1])){
+                document.getElementById('dealerCard1').innerText = '2'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("3")){
         mrHouse.dealerHand +=3
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[2])){
+                document.getElementById('dealerCard1').innerText = '3'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("4")){
         mrHouse.dealerHand += 4
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[3])){
+                document.getElementById('dealerCard1').innerText = '4'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("5")){
         mrHouse.dealerHand += 5
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[4])){
+                document.getElementById('dealerCard1').innerText = '5'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("6")){
         mrHouse.dealerHand += 6
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[5])){
+                document.getElementById('dealerCard1').innerText = '6'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("7")){
         mrHouse.dealerHand += 7
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[6])){
+                document.getElementById('dealerCard1').innerText = '7'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("8")){
         mrHouse.dealerHand += 8
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[7])){
+                document.getElementById('dealerCard1').innerText = '8'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("9")){
         mrHouse.dealerHand += 9
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[8])){
+                document.getElementById('dealerCard1').innerText = '9'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         } else if (dealDealersCard1.startsWith("10") || dealDealersCard1.startsWith("Jack") || dealDealersCard1.startsWith("Queen") || dealDealersCard1.startsWith("King")){
         mrHouse.dealerHand += 10
+        match = tableDeck.deck.find(element => {
+            if(element.includes(allCardValues[9, 10, 11, 12])){
+                document.getElementById('dealerCard1').innerText = '10'
+                dealerCard1Style.backgroundColor='white'
+            }
+        })
         }
 
     //this card that was extracted is being deleted. 
@@ -142,8 +257,9 @@ function dealInitialCards (arr) {
     dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract2ndDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
+     //getting the index of the card randomly dealt.
     tableDeck.deck.splice(extract2ndDealersCard, 1)
-
+    //extracting the randomly dealt card from the array
     if (dealDealersCard2.startsWith("A")){
         mrHouse.dealerHand += 1
         } else if (dealDealersCard2.startsWith("2")){
@@ -166,10 +282,16 @@ function dealInitialCards (arr) {
         mrHouse.dealerHand += 10
         }
 
+console.log(dealDealersCard1, dealDealersCard2)
+
+//SOURCE FOR MATCH ARROW FUNCTION USED ABOVE AND BELOW: https://bobbyhadz.com/blog/javascript-check-if-array-contains-substring-match. I REPETITIVELY USE THIS FUNCTION. I EXPLAINED EACH LINE OF CODE THE FIRST TIME I USED THE FUNCTION TO DEAL THE DEALER'S FIRST CARD.
+
     dealPlayersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stPlayersCard = tableDeck.deck.indexOf(dealPlayersCard1)
+     //getting the index of the card randomly dealt.
     tableDeck.deck.splice(extract1stPlayersCard, 1)
+    //extracting the randomly dealt card from the array
     if (dealPlayersCard1.startsWith("A")){
         user.playerHand += 1
         } else if (dealPlayersCard1.startsWith("2")){
@@ -195,7 +317,9 @@ function dealInitialCards (arr) {
     dealPlayersCard2 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract2ndPlayersCard = tableDeck.deck.indexOf(dealPlayersCard2)
+    //getting the index of the card randomly dealt.
     tableDeck.deck.splice(extract2ndPlayersCard, 1)
+    //extracting the randomly dealt card from the array
     if (dealPlayersCard2.startsWith("A")){
         user.playerHand += 1
         } else if (dealPlayersCard2.startsWith("2")){
@@ -232,15 +356,15 @@ function dealInitialCards (arr) {
     // //test to see the deck result after deal.
 
     // return dealDealersCard1, dealDealersCard2
-    // return tableDeck.deck, user.playerHand, mrHouse.dealerHand
+    // return tableDeck.deck
+        //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
+        //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
 }
-
-
-
-console.log('dealInitialCards', dealInitialCards(tableDeck.deck))
-console.log(dealPlayersCard1, dealPlayersCard2)
-console.log('FIRSTDEALRESULTS', user.playerHand)
-    //QUESTION: why won't all of my players' card values add properly based on my if functions above? The cards that don't appear to add to my playerhand variable are 8, 9, and at least some of my face cards?
+// dealInitialCards(tableDeck.deck)
+// console.log('dealInitialCards', tableDeck.deck)
+// console.log(dealPlayersCard1, dealPlayersCard2)
+// console.log('FIRSTDEALRESULTS', user.playerHand)
+    //RESOLVED: why won't all of my players' card values add properly based on my if functions above? The cards that don't appear to add to my playerhand variable are 8, 9, and at least some of my face cards? 
 //when 8 or 9 is my first card, the addition to my playerHand variable does not work properly:
     //9 of hearts and 8 of spades resulted in '8'.
     //9 of hearts and 6 of hearts resulted in '6'.
@@ -325,6 +449,8 @@ function dealHitCards (arr) {
 
 
 //buttons
+dealInitialCards(tableDeck.deck)
+console.log(tableDeck.deck)
 
 document.getElementById('startButton').addEventListener('click', () => {
     getGameplayContainer.style.visibility = 'visible';
