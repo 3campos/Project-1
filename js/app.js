@@ -166,6 +166,7 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
                 //add backgroundcolor = white to the card.
                     //THIS PART IS WORKING. IT'S FILLING THE BACKGROUND COLOR OF THE CARD WITH A WHITE COLOR.
+                // dealerCard1Style.textAlign='left'
             }
         })
         } else if (dealDealersCard1.startsWith("2")){
