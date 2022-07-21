@@ -62,6 +62,7 @@ const diamondsStrings = ['Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4
 //LIBRARY OF VARIABLES
 
 const allCardValues = ['Ace', '2', "3", "4", "5", "6", "7", "8", "9", "10", 'Jack', 'Queen', 'King']
+const allSuits = ['clubs', 'diamonds', 'hearts', 'spades']
 
 //DEALER CARD STYLE (grouped by card number)
 
@@ -217,9 +218,11 @@ function dealInitialCards (arr) {
             //arrow function to find a string and execute a function
             if(element.includes(allCardValues[0])){
                 //if function indicating that if the string includes 'Ace', then the below code block is executed.
-                document.getElementById('dealers1stCardTLN').innerText = 'A'
+                dealerCard1TopNumber.innerText = 'A'
+                dealerCard1Suit.innerText = '♥️'
                 //grab the fifth dealer card (the first one dealt) from the DOM. Then, add as innertext = 1.
                     //THIS PART IS NOT WORKING. THE TEXT IS NOT SHOWING UP ON THE WEBPAGE. Why is the innertext not displaying on teh webpage despite me writing everything correctly here?
+                dealerCard1BottomNumber.innerText = 'A'   
                 dealerCard1Style.backgroundColor='white'
                 //add backgroundcolor = white to the card.
                     //THIS PART IS WORKING. IT'S FILLING THE BACKGROUND COLOR OF THE CARD WITH A WHITE COLOR.
@@ -231,7 +234,8 @@ function dealInitialCards (arr) {
         mrHouse.dealerHand += 2
         match = tableDeck.deck.find(element => {
             if(element.includes(allCardValues[1])){
-                document.getElementById('dealerCard1').innerText = '2'
+                dealerCard2TopNumber = document.getElementById('dealers2ndCardTLN').innerText = '2'
+                dealerCard2Suit = document.getElementById('dealers2ndCardSuit')
                 dealerCard1Style.backgroundColor='white'
             }
         })

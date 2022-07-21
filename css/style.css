@@ -103,8 +103,10 @@ body{
 }
 
 .dealersHand, .playersHand{
-    display: flex;
-    flex-direction: row;
+    /*flex box created and set to row for the cards' elements and child divs. the child divs are the text */
+
+    /*IGNORE LINES 111-125*/
+
     /*create a flexbox container*/
     
     /*justifying content to the right */
@@ -120,6 +122,8 @@ body{
     keeping the cards the same size would prevent issues with flexbox sizing
     */
 
+    display: flex;
+    flex-direction: row;
     width: 60px;
     height: 100px;
     border: 1.5px solid black;
@@ -128,27 +132,39 @@ body{
     font-size: 10px;
     border-radius: 8px;
     color: red;
+    justify-content: space-between;
     /* margin: 20px; */
 }
 
+/*QUESTION: Why do my cards, which are flexbox containers, put the child containers in columns instead of rows when I have specified that the containers should be in rows on line 107? */
+
 .dealersTopCardNumbers, .playersTopCardNumbers{
     display: flex;
+    /*FLEX CONTAINER CREATED*/
     flex-direction: row;
+    /*THIS SHOULD SETS THE CARDS' TOP TEXT CONTAINER AS A ROW BUT IT'S IN A COLUMN INSTEAD*/
     justify-content: flex-start;
+    /*THIS ALIGNS THE TOP CARD TEXT TO THE LEFT OF THE CONTAINER*/
 }
 
 .dealersCardSuits{
     display: flex;
+    /*FLEX CONTAINER CREATED*/
     flex-direction: row;
+    /*THIS SHOULD SETS THE CARDS' TOP TEXT CONTAINER AS A ROW BUT IT'S IN A COLUMN INSTEAD*/
     flex-wrap: wrap;
+    /*wrapping the textual elements of the card */
     align-content: center;
+    /* aligning the suit to the center of the card*/
 }
 
 .dealersBottomCardNumbers{
     display: flex;
+    /*FLEX CONTAINER CREATED*/
     flex-direction: row;
-    justify-content: flex-start;
+    /*THIS SHOULD SETS THE CARDS' TOP TEXT CONTAINER AS A ROW BUT IT'S IN A COLUMN INSTEAD*/
     align-items: flex-end;
+    /* aligning the suit to the right side of the card*/
 }
 
 .playersButtonsContainer{
