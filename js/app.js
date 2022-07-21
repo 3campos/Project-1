@@ -1475,7 +1475,260 @@ function dealHitCards (arr) {
             if (dealPlayersCard3.includes('Spades')){
                 playerCard3Suit.innerText='♠️'
             }
+            else if (dealPlayersCard3.startsWith("2")){
+                user.playerHand += 2
+                playerCard3TopNumber = '2'
+                playerCard3BottomNumber = '2'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("3")){
+                user.playerHand +=3
+                playerCard3TopNumber = '3'
+                playerCar3BottomNumber = '3'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("4")){
+                user.playerHand += 4
+                playerCard3TopNumber = '4'
+                playerCard3BottomNumber = '4'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("5")){
+                user.playerHand += 5
+                playerCard3TopNumber = '5'
+                playerCard3BottomNumber = '5'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("6")){
+                user.playerHand += 6
+                playerCard3TopNumber = '6'
+                playerCard3BottomNumber = '6'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("7")){
+                user.playerHand += 7
+                playerCard3TopNumber = '7'
+                playerCard3BottomNumber = '7'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("8")){
+                user.playerHand += 8
+                playerCard3TopNumber = '8'
+                playerCard3BottomNumber = '8'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("9")){
+                user.playerHand += 9
+                playerCard3TopNumber = '9'
+                playerCard3BottomNumber = '9'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("10")){   
+                    user.playerHand += 10
+                    playerCard3TopNumber = '10'
+                    playerCard3BottomNumber = '10'
+                    playerCard3Style.backgroundColor='white'
             
+                    if (dealPlayersCard3.includes('Clubs')){
+                        playerCard3Suit.innerText='♣️'
+                    }
+            
+                    if (dealPlayersCard3.includes('Diamonds')){
+                        playerCard3Suit.innerText='♦️'
+                    } 
+            
+                    if (dealPlayersCard3.includes('Hearts')){
+                        playerCard3Suit.innerText='♥️'
+                    } 
+            
+                    if (dealPlayersCard3.includes('Spades')){
+                        playerCard3Suit.innerText='♠️'
+                    }
+                } else if (dealPlayersCard3.startsWith("Jack")){
+                    user.playerHand += 10
+                playerCard3TopNumber = 'J'
+                playerCard3BottomNumber = 'J'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("Queen")){
+                user.playerHand += 10
+                playerCard3TopNumber = 'Q'
+                playerCard3BottomNumber = 'Q'
+                playerCard3Style.backgroundColor='white'
+        
+                if (dealPlayersCard3.includes('Clubs')){
+                    playerCard3Suit.innerText='♣️'
+                }
+        
+                if (dealPlayersCard3.includes('Diamonds')){
+                    playerCard3Suit.innerText='♦️'
+                } 
+        
+                if (dealPlayersCard3.includes('Hearts')){
+                    playerCard3Suit.innerText='♥️'
+                } 
+        
+                if (dealPlayersCard3.includes('Spades')){
+                    playerCard3Suit.innerText='♠️'
+                }
+                } else if (dealPlayersCard3.startsWith("King")){
+                    user.playerHand += 10
+                    playerCard3TopNumber = 'K'
+                    playerCard3BottomNumber = 'K'
+                    playerCard3Style.backgroundColor='white'
+            
+                    if (dealPlayersCard3.includes('Clubs')){
+                        playerCard3Suit.innerText='♣️'
+                    }
+            
+                    if (dealPlayersCard3.includes('Diamonds')){
+                        playerCard3Suit.innerText='♦️'
+                    } 
+            
+                    if (dealPlayersCard3.includes('Hearts')){
+                        playerCard3Suit.innerText='♥️'
+                    } 
+            
+                    if (dealPlayersCard3.includes('Spades')){
+                        playerCard3Suit.innerText='♠️'
+                    }
+                }
+
         return tableDeck.deck
         //QUESTION 1: is the above returning to the system as well as logging to the console? Just curious about whether it's doing both. I researched this but only found stack overflow articles.
             //answer: delete them. console logs should be removed by final product.
@@ -1487,6 +1740,7 @@ function dealHitCards (arr) {
         dealPlayersCard4 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract4thPlayersCard = arr.indexOf(dealPlayersCard4)
         tableDeck.deck.splice(extract4thPlayersCard, 1)
+        
         return tableDeck.deck
     }
     else if(hitClickCount === 3){
