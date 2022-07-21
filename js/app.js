@@ -122,6 +122,7 @@ let playerCard5BottomNumber = document.getElementById('players5thCardBRN')
 //match function to search deck-array strings
 
 let match;
+let matchSuits;
 
 //dealing functions to dealer
 let dealDealersCard1;
@@ -214,9 +215,7 @@ function dealInitialCards (arr) {
         if (dealDealersCard1.startsWith("A")){
         mrHouse.dealerHand += 1
         //add a variable name and equal sign before tabledeck.deck of each funciton if the below function doesn't work: 'match ='
-        match = tableDeck.deck.find(element => {
             //arrow function to find a string and execute a function
-            if(element.includes(allCardValues[0])){
                 //if function indicating that if the string includes 'Ace', then the below code block is executed.
                 dealerCard1TopNumber.innerText = 'A'
                 //grab the fifth dealer card (the first one dealt) from the DOM. Then, add as innertext = 1.
@@ -226,18 +225,22 @@ function dealInitialCards (arr) {
                     //THIS PART IS WORKING. IT'S FILLING THE BACKGROUND COLOR OF THE CARD WITH A WHITE COLOR.
                 
                     // dealerCard1Style.textAlign='left'
-            }
-        })
-        match = tableDeck.deck.find(element => {
-            if (element.includes('Clubs')){
+            if (dealDealersCard1.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
-            } else if (element.includes('Hearts')){
+            }
+
+            if (dealDealersCard1.includes('Diamonds')){
+            dealerCard1Suit.innerText='♦️'
+            } 
+
+            if (dealDealersCard1.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
-            } else if (element.includes('Spades')){
+            } 
+
+            if (dealDealersCard1.includes('Spades')){
                 dealerCard1Suit.innerText='♠️'
             }
-        })    
+
         } else if (dealDealersCard1.startsWith("2")){
         mrHouse.dealerHand += 2
         match = tableDeck.deck.find(element => {
@@ -247,10 +250,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -266,10 +270,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -285,10 +290,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -304,10 +310,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -323,10 +330,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -342,10 +350,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -361,10 +370,11 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
@@ -380,40 +390,100 @@ function dealInitialCards (arr) {
                 dealerCard1Style.backgroundColor='white'
             }
         })
-        match = tableDeck.deck.find(element => {
+        matchSuits = tableDeck.deck.find(element => {
             if (element.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
-            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
             } else if (element.includes('Hearts')){
                 dealerCard1Suit.innerText='♥️'
             } else if (element.includes('Spades')){
                 dealerCard1Suit.innerText='♠️'
             }
         })   
-        }
-        //need to separate the below out
-
-        // || dealDealersCard1.startsWith("Jack") || dealDealersCard1.startsWith("Queen") || dealDealersCard1.startsWith("King")
-
-        else if (dealDealersCard1.startsWith("10")){
+        } else if (dealDealersCard1.startsWith(allCardValues[9])){
         mrHouse.dealerHand += 10
         match = tableDeck.deck.find(element => {
-            if(element.includes('10')){
-                document.getElementById('dealerCard1').innerText = '10'
-                dealerCard1Style.backgroundColor='white'
-            } else if (element.includes('Jack')){
-                document.getElementById('dealerCard1').innerText = 'J'
-                dealerCard1Style.backgroundColor='white'
-            } else if (element.includes('Queen')){
-                document.getElementById('dealerCard1').innerText = 'Q'
-                dealerCard1Style.backgroundColor='white'
-            } 
-            else if (element.includes('King')){
-                document.getElementById('dealerCard1').innerText = 'K'
+            if(element.includes(allCardValues[9])){
+                dealerCard1TopNumber.innerText = '10'
+                dealerCard1BottomNumber.innerText = '10'   
                 dealerCard1Style.backgroundColor='white'
             }
-            })
+        })
+        matchSuits = tableDeck.deck.find(element => {
+                if (element.includes('Clubs')){
+                    dealerCard1Suit.innerText='♣️'
+                } else if (element.includes('Diamonds')){
+                    dealerCard1Suit.innerText='♦️'
+                } else if (element.includes('Hearts')){
+                    dealerCard1Suit.innerText='♥️'
+                } else if (element.includes('Spades')){
+                    dealerCard1Suit.innerText='♠️'
+                }
+            })   
+        } else if (dealDealersCard1.startsWith(allCardValues[10])){
+            mrHouse.dealerHand += 10
+            match = tableDeck.deck.find(element => {
+            if (element.includes(allCardValues[10])){
+                dealerCard1TopNumber.innerText = 'J'
+                dealerCard1BottomNumber.innerText = 'J'   
+                dealerCard1Style.backgroundColor='white'
+            }
+        }) 
+        matchSuits = tableDeck.deck.find(element => {
+            if (element.includes('Clubs')){
+                dealerCard1Suit.innerText='♣️'
+            } else if (element.includes('Diamonds')){
+                dealerCard1Suit.innerText='♦️'
+            } else if (element.includes('Hearts')){
+                dealerCard1Suit.innerText='♥️'
+            } else if (element.includes('Spades')){
+                dealerCard1Suit.innerText='♠️'
+            }
+        })  
+    } else if (dealDealersCard1.startsWith(allCardValues[11])){
+        mrHouse.dealerHand += 10
+        match = tableDeck.deck.find(element => {
+        if (element.includes(allCardValues[11])){
+            dealerCard1TopNumber.innerText = 'Q'
+            dealerCard1BottomNumber.innerText = 'Q'   
+            dealerCard1Style.backgroundColor='white'
         }
+    }) 
+    matchSuits = tableDeck.deck.find(element => {
+        if (element.includes('Clubs')){
+            dealerCard1Suit.innerText='♣️'
+        } else if (element.includes('Diamonds')){
+            dealerCard1Suit.innerText='♦️'
+        } else if (element.includes('Hearts')){
+            dealerCard1Suit.innerText='♥️'
+        } else if (element.includes('Spades')){
+            dealerCard1Suit.innerText='♠️'
+        }
+    }) 
+} else if (dealDealersCard1.startsWith(allCardValues[12])){
+    mrHouse.dealerHand += 10
+    match = tableDeck.deck.find(element => {
+    if (element.includes(allCardValues[12])){
+        dealerCard1TopNumber.innerText = 'K'
+        dealerCard1BottomNumber.innerText = 'K'   
+        dealerCard1Style.backgroundColor='white'
+    }
+}) 
+matchSuits = tableDeck.deck.find(element => {
+    if (element.includes('Clubs')){
+        dealerCard1Suit.innerText='♣️'
+    } else if (element.includes('Diamonds')){
+        dealerCard1Suit.innerText='♦️'
+    } else if (element.includes('Hearts')){
+        dealerCard1Suit.innerText='♥️'
+    } else if (element.includes('Spades')){
+        dealerCard1Suit.innerText='♠️'
+    }
+})    
+} 
+            
+            
 
 
 
