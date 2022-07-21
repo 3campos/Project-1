@@ -214,10 +214,9 @@ function dealInitialCards (arr) {
     //extracting the randomly dealt card from the array
         if (dealDealersCard1.startsWith("A")){
         mrHouse.dealerHand += 1
-
-                dealerCard1TopNumber.innerText = 'A'
-                dealerCard1BottomNumber.innerText = 'A'   
-                dealerCard1Style.backgroundColor='white'
+        dealerCard1TopNumber.innerText = 'A'
+        dealerCard1BottomNumber.innerText = 'A'   
+        dealerCard1Style.backgroundColor='white'
 
             if (dealDealersCard1.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
