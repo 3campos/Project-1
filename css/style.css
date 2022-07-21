@@ -104,6 +104,7 @@ body{
 
 .dealersHand, .playersHand{
     display: flex;
+    flex-direction: row;
     /*create a flexbox container*/
     
     /*justifying content to the right */
@@ -118,6 +119,7 @@ body{
         //should I be using absolute/relative positioning instead? I'm very weak on th
     keeping the cards the same size would prevent issues with flexbox sizing
     */
+
     width: 60px;
     height: 100px;
     border: 1.5px solid black;
@@ -127,6 +129,26 @@ body{
     border-radius: 8px;
     color: red;
     /* margin: 20px; */
+}
+
+.dealersTopCardNumbers, .playersTopCardNumbers{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.dealersCardSuits{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.dealersBottomCardNumbers{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .playersButtonsContainer{

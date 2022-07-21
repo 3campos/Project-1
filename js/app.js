@@ -59,25 +59,63 @@ const diamondsStrings = ['Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4
 // const queens = 10
 // const kings = 10
 
+//LIBRARY OF VARIABLES
+
 const allCardValues = ['Ace', '2', "3", "4", "5", "6", "7", "8", "9", "10", 'Jack', 'Queen', 'King']
 
+//DEALER CARD STYLE (grouped by card number)
+
 let dealerCard1Style = document.getElementById('dealerCard1').style
+let dealerCard1TopNumber = document.getElementById('dealers1stCardTLN')
+let dealerCard1Suit = document.getElementById('dealers1stCardSuit')
+let dealerCard1BottomNumber = document.getElementById('dealers1stCardBRN')
+
 let dealerCard2Style = document.getElementById('dealerCard2').style
+let dealerCard2TopNumber = document.getElementById('dealers2ndCardTLN')
+let dealerCard2Suit = document.getElementById('dealers2ndCardSuit')
+let dealerCard2BottomNumber = document.getElementById('dealers2ndCardBRN')
+
 let dealerCard3Style = document.getElementById('dealerCard3').style
+let  = dealerCard3TopNumber = document.getElementById('dealers3rdCardTLN')
+let dealerCard3Suit = document.getElementById('dealers3rdCardSuit')
+let dealerCard3BottomNumber = document.getElementById('dealers3rdCardBRN')
+
+
 let dealerCard4Style = document.getElementById('dealerCard4').style
+let  = dealerCard4TopNumber = document.getElementById('dealers4thCardTLN')
+let dealerCard4Suit = document.getElementById('dealers4thCardSuit')
+let dealerCard4BottomNumber = document.getElementById('dealers4thCardBRN')
+
+
 let dealerCard5Style = document.getElementById('dealerCard5').style
+let  = dealerCard5TopNumber = document.getElementById('dealers5thCardTLN')
+let dealerCard5Suit = document.getElementById('dealers5thCardSuit')
+let dealerCard5BottomNumber = document.getElementById('dealers5thCardBRN')
+
+//PLAYER CARD STYLE (grouped by card number)
+let playerCard1Style = document.getElementById('playerCard1').style
+let dealerCard1TopNumber = document.getElementById('players1stCardTLN')
+let dealerCard1Suit = document.getElementById('players1stCardSuit')
+let dealerCard1BottomNumber = document.getElementById('players1stCardBRN')
+
+
+//match function to search deck-array strings
 
 let match;
 
+//dealing functions to dealer
 let dealDealersCard1;
 let dealDealersCard2;
 let extract1stDealersCard;
 let extract2ndDealersCard;
 
+//dealing functions to player
 let dealPlayersCard1;
 let dealPlayersCard2;
 let extract1stPlayersCard;
 let extract2ndPlayersCard;
+
+//END OF LIBRARY
 
 class Player {
     constructor(name, playerHand, playerMoney){
@@ -160,13 +198,14 @@ function dealInitialCards (arr) {
             //arrow function to find a string and execute a function
             if(element.includes(allCardValues[0])){
                 //if function indicating that if the string includes 'Ace', then the below code block is executed.
-                document.getElementById('dealerCard1').innerText = 'A'
+                document.getElementById('dealers1stCardTLN').innerText = 'A'
                 //grab the fifth dealer card (the first one dealt) from the DOM. Then, add as innertext = 1.
                     //THIS PART IS NOT WORKING. THE TEXT IS NOT SHOWING UP ON THE WEBPAGE. Why is the innertext not displaying on teh webpage despite me writing everything correctly here?
                 dealerCard1Style.backgroundColor='white'
                 //add backgroundcolor = white to the card.
                     //THIS PART IS WORKING. IT'S FILLING THE BACKGROUND COLOR OF THE CARD WITH A WHITE COLOR.
-                // dealerCard1Style.textAlign='left'
+                
+                    // dealerCard1Style.textAlign='left'
             }
         })
         } else if (dealDealersCard1.startsWith("2")){
