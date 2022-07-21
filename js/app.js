@@ -94,10 +94,29 @@ let dealerCard5BottomNumber = document.getElementById('dealers5thCardBRN')
 
 //PLAYER CARD STYLE (grouped by card number)
 let playerCard1Style = document.getElementById('playerCard1').style
-let dealerCard1TopNumber = document.getElementById('players1stCardTLN')
-let dealerCard1Suit = document.getElementById('players1stCardSuit')
-let dealerCard1BottomNumber = document.getElementById('players1stCardBRN')
+let playerCard1TopNumber = document.getElementById('players1stCardTLN')
+let playerCard1Suit = document.getElementById('players1stCardSuit')
+let playerCard1BottomNumber = document.getElementById('players1stCardBRN')
 
+let playerCard2Style = document.getElementById('playerCard2').style
+let playerCard2TopNumber = document.getElementById('players2ndCardTLN')
+let playerCard2Suit = document.getElementById('players2ndCardSuit')
+let playerCard2BottomNumber = document.getElementById('players2ndCardBRN')
+
+let playerCard3Style = document.getElementById('playerCard3').style
+let playerCard3TopNumber = document.getElementById('players3rdCardTLN')
+let playerCard3Suit = document.getElementById('players3rdCardSuit')
+let playerCard3BottomNumber = document.getElementById('players3rdCardBRN')
+
+let playerCard4Style = document.getElementById('playerCard4').style
+let playerCard4TopNumber = document.getElementById('players4thCardTLN')
+let playerCard4Suit = document.getElementById('players4thCardSuit')
+let playerCard4BottomNumber = document.getElementById('players4thCardBRN')
+
+let playerCard5Style = document.getElementById('playerCard5').style
+let playerCard5TopNumber = document.getElementById('players5thCardTLN')
+let playerCard5Suit = document.getElementById('players5thCardSuit')
+let playerCard5BottomNumber = document.getElementById('players5thCardBRN')
 
 //match function to search deck-array strings
 
