@@ -62,7 +62,7 @@ const diamondsStrings = ['Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4
 //LIBRARY OF VARIABLES
 
 const allCardValues = ['Ace', '2', "3", "4", "5", "6", "7", "8", "9", "10", 'Jack', 'Queen', 'King']
-const allSuits = ['clubs', 'diamonds', 'hearts', 'spades']
+// const allSuits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'] // this didn't work.
 
 //DEALER CARD STYLE (grouped by card number)
 
@@ -219,9 +219,7 @@ function dealInitialCards (arr) {
             if(element.includes(allCardValues[0])){
                 //if function indicating that if the string includes 'Ace', then the below code block is executed.
                 dealerCard1TopNumber.innerText = 'A'
-                dealerCard1Suit.innerText = '♥️'
                 //grab the fifth dealer card (the first one dealt) from the DOM. Then, add as innertext = 1.
-                    //THIS PART IS NOT WORKING. THE TEXT IS NOT SHOWING UP ON THE WEBPAGE. Why is the innertext not displaying on teh webpage despite me writing everything correctly here?
                 dealerCard1BottomNumber.innerText = 'A'   
                 dealerCard1Style.backgroundColor='white'
                 //add backgroundcolor = white to the card.
@@ -230,12 +228,21 @@ function dealInitialCards (arr) {
                     // dealerCard1Style.textAlign='left'
             }
         })
+        match = tableDeck.deck.find(element => {
+            if (element.includes('Clubs')){
+                dealerCard1Suit.innerText='Clubs'
+            } else if (element.includes('Diamonds')){dealerCard1Suit.innerText='Diamonds'
+            } else if (element.includes('Hearts')){
+                dealerCard1Suit.innerText='Hearts'
+            } else if (element.includes('Spades')){
+                dealerCard1Suit.innerText='Spades'
+            }
+        })    
         } else if (dealDealersCard1.startsWith("2")){
         mrHouse.dealerHand += 2
         match = tableDeck.deck.find(element => {
             if(element.includes(allCardValues[1])){
-                dealerCard2TopNumber = document.getElementById('dealers2ndCardTLN').innerText = '2'
-                dealerCard2Suit = document.getElementById('dealers2ndCardSuit')
+                document.getElementById('dealerCard1').innerText = '3'
                 dealerCard1Style.backgroundColor='white'
             }
         })
