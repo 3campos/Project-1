@@ -219,7 +219,7 @@ function playerBlackjack(playersClicks){
         }
     }
 
-let dealerHitCount = 0;
+let dealersHits = 0;
 function dealerBlackjack(dealersHits){
     if(mrHouse.dealerHand===21){
         alert('Dealer has a blackjack! Dealer Wins!')
@@ -2337,6 +2337,9 @@ let extract5thDealersCard;
 
 function dealDealersHitCards (arr) {
     //need to add functions or conditionals here
+    while (mrHouse.dealerHand < 17){//this is the closing bracket for the while loop at the start of the dealDealersHit cards function
+        dealersHits += 1
+        console.log(dealersHits)
     if (dealersHits === 1){
     dealDealersCard3 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
     extract3rdDealersCard = arr.indexOf(dealDealersCard3)
@@ -2363,7 +2366,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("2")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 2
         dealerCard3TopNumber.innerText = '2'
         dealerCard3BottomNumber.innerText = '2'
         dealerCard3Style.backgroundColor='white'
@@ -2384,7 +2387,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("3")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 3
         dealerCard3TopNumber.innerText = '3'
         dealerCard3BottomNumber.innerText = '3'
         dealerCard3Style.backgroundColor='white'
@@ -2405,7 +2408,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("4")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 4
         dealerCard3TopNumber.innerText = '4'
         dealerCard3BottomNumber.innerText = '4'
         dealerCard3Style.backgroundColor='white'
@@ -2426,7 +2429,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("5")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 5
         dealerCard3TopNumber.innerText = '5'
         dealerCard3BottomNumber.innerText = '5'
         dealerCard3Style.backgroundColor='white'
@@ -2447,7 +2450,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("6")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 6
         dealerCard3TopNumber.innerText = '6'
         dealerCard3BottomNumber.innerText = '6'
         dealerCard3Style.backgroundColor='white'
@@ -2468,7 +2471,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("7")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 7
         dealerCard3TopNumber.innerText = '7'
         dealerCard3BottomNumber.innerText = '7'
         dealerCard3Style.backgroundColor='white'
@@ -2489,7 +2492,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("8")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 8
         dealerCard3TopNumber.innerText = '8'
         dealerCard3BottomNumber.innerText = '8'
         dealerCard3Style.backgroundColor='white'
@@ -2510,7 +2513,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("9")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 9
         dealerCard3TopNumber.innerText = '9'
         dealerCard3BottomNumber.innerText = '9'
         dealerCard3Style.backgroundColor='white'
@@ -2531,7 +2534,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("10")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard3TopNumber.innerText = '10'
         dealerCard3BottomNumber.innerText = '10'
         dealerCard3Style.backgroundColor='white'
@@ -2552,7 +2555,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("Jack")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard3TopNumber.innerText = 'J'
         dealerCard3BottomNumber.innerText = 'J'
         dealerCard3Style.backgroundColor='white'
@@ -2573,7 +2576,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("Queen")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard3TopNumber.innerText = 'Q'
         dealerCard3BottomNumber.innerText = 'Q'
         dealerCard3Style.backgroundColor='white'
@@ -2594,7 +2597,7 @@ function dealDealersHitCards (arr) {
             dealerCard3Suit.innerText='♠️'
         }
     } else if (dealDealersCard3.startsWith("King")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard3TopNumber.innerText = 'K'
         dealerCard3BottomNumber.innerText = 'K'
         dealerCard3Style.backgroundColor='white'
@@ -2642,7 +2645,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("2")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 2
         dealerCard4TopNumber.innerText = '2'
         dealerCard4BottomNumber.innerText = '2'
         dealerCard4Style.backgroundColor='white'
@@ -2663,7 +2666,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("3")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 3
         dealerCard4TopNumber.innerText = '3'
         dealerCard4BottomNumber.innerText = '3'
         dealerCard4Style.backgroundColor='white'
@@ -2684,7 +2687,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("4")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 4
         dealerCard4TopNumber.innerText = '4'
         dealerCard4BottomNumber.innerText = '4'
         dealerCard4Style.backgroundColor='white'
@@ -2705,7 +2708,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("5")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 5
         dealerCard4TopNumber.innerText = '5'
         dealerCard4BottomNumber.innerText = '5'
         dealerCard4Style.backgroundColor='white'
@@ -2726,7 +2729,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("6")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 6
         dealerCard4TopNumber.innerText = '6'
         dealerCard4BottomNumber.innerText = '6'
         dealerCard4Style.backgroundColor='white'
@@ -2747,7 +2750,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("7")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 7
         dealerCard4TopNumber.innerText = '7'
         dealerCard4BottomNumber.innerText = '7'
         dealerCard4Style.backgroundColor='white'
@@ -2768,7 +2771,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("8")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 8
         dealerCard4TopNumber.innerText = '8'
         dealerCard4BottomNumber.innerText = '8'
         dealerCard4Style.backgroundColor='white'
@@ -2789,7 +2792,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("9")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 9
         dealerCard4TopNumber.innerText = '9'
         dealerCard4BottomNumber.innerText = '9'
         dealerCard4Style.backgroundColor='white'
@@ -2810,7 +2813,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("10")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard4TopNumber.innerText = '10'
         dealerCard4BottomNumber.innerText = '10'
         dealerCard4Style.backgroundColor='white'
@@ -2831,7 +2834,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("Jack")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard4TopNumber.innerText = 'J'
         dealerCard4BottomNumber.innerText = 'J'
         dealerCard4Style.backgroundColor='white'
@@ -2852,7 +2855,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("Queen")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard4TopNumber.innerText = 'Q'
         dealerCard4BottomNumber.innerText = 'Q'
         dealerCard4Style.backgroundColor='white'
@@ -2873,7 +2876,7 @@ function dealDealersHitCards (arr) {
             dealerCard4Suit.innerText='♠️'
         }
     } else if (dealDealersCard4.startsWith("King")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard4TopNumber.innerText = 'K'
         dealerCard4BottomNumber.innerText = 'K'
         dealerCard4Style.backgroundColor='white'
@@ -2921,7 +2924,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("2")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 2
         dealerCard5TopNumber.innerText = '2'
         dealerCard5BottomNumber.innerText = '2'
         dealerCard5Style.backgroundColor='white'
@@ -3174,7 +3177,10 @@ function dealDealersHitCards (arr) {
         }
     }
 }
+    }
 }
+
+
 
 //buttons
 dealInitialCards(tableDeck.deck)
@@ -3200,6 +3206,7 @@ document.getElementById('hit').addEventListener('click', () => {
 
 document.getElementById('stay').addEventListener('click', () => {
     document.getElementById('hit').style.pointerEvents = 'none';
+    dealDealersHitCards(tableDeck.deck)
 })
 
 
