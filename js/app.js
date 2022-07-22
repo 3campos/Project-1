@@ -214,7 +214,8 @@ function playerBlackjack(clicks){
             alert('Player has a blackjack! Player Wins!')
         } else if (user.playerHand<=21 && clicks === 3){
             alert('Player has a blackjack! Player Wins!')
-        }
+        } else if (user.playerHand > 21)
+            alert('Player busts! Dealer Wins!')
     }
 
 function dealInitialCards (arr) {
