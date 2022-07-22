@@ -130,11 +130,25 @@ let dealDealersCard2;
 let extract1stDealersCard;
 let extract2ndDealersCard;
 
+let dealDealersCard3;
+let dealDealersCard4;
+let dealDealersCard5;
+let extract3rdDealersCard;
+let extract4thDealersCard;
+let extract5thDealersCard;
+
 //dealing functions to player
 let dealPlayersCard1;
 let dealPlayersCard2;
 let extract1stPlayersCard;
 let extract2ndPlayersCard;
+
+let dealPlayersCard3;
+let dealPlayersCard4;
+let dealPlayersCard5;
+let extract3rdPlayersCard;
+let extract4thPlayersCard;
+let extract5thPlayersCard;
 
 //END OF LIBRARY
 
@@ -218,42 +232,54 @@ function disableAllButtons(){
 
 //Win tracking global functions
 
+
+let winner = 'TBD';
+
 let hitClickCount = 0;
 
 function playerBlackjack(playersClicks){
         if(user.playerHand===21){
-            alert('Player has a blackjack! Player Wins!')
+            setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 1000) 
             disableAllButtons()
         } else if (user.playerHand<=21 && playersClicks === 3){
-            alert('Player has a blackjack! Player Wins!')
+            setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 1000)
             disableAllButtons()
         } else if (user.playerHand > 21){
-            alert('Player busts! Dealer Wins!')
+            setTimeout(function(){alert('Player busts! Dealer wins the round!'); }, 1000)
             disableAllButtons()
         }
     }
 
 let dealersHits = 0;
+
 function dealerBlackjack(dealersHits){
     if(mrHouse.dealerHand===21){
-        alert('Dealer has a blackjack! Dealer Wins!')
+        setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 1000)
+        winner = 'Dealer'
         disableAllButtons()
     } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
-        alert('Dealer has a blackjack! Dealer Wins!')
+        setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 1000)
+        winner = 'Dealer'
         disableAllButtons()
     } else if (mrHouse.dealerHand > 21){
-        alert('Dealer busts! Player Wins!')
+        setTimeout(function(){alert('Dealer busts! Player wins the round!'); }, 1000)
+        winner = 'Player'
         disableAllButtons()
     }
 }
 
 function compareHandsIfNoOneBusts(){
-    if(mrHouse.dealerHand > user.playerHand){
-        alert('Dealer has a higher hand. Dealer wins!')
-        disableAllButtons()
-    } else if(user.playerHand > user.playerHand){
-        alert('Player has a higher hand. Player wins!')
-        disableAllButtons()
+    if (winner === 'TBD'){
+        if(mrHouse.dealerHand > user.playerHand){
+            setTimeout(function(){alert('Dealer has a higher hand. Dealer wins the round!'); }, 1000)
+            disableAllButtons()
+        } else if(user.playerHand > mrHouse.dealerHand){
+            setTimeout(function(){alert('Player has a higher hand. Player wins the round!'); }, 1000)
+            disableAllButtons()
+        } else { //for draws
+            setTimeout(function(){alert('The Player and Dealer have the same value. Draw!'); }, 1000)
+            disableAllButtons()
+        }
     }
 }
 
@@ -824,6 +850,11 @@ function dealInitialCards (arr) {
                 playerCard2Suit.innerText='♠️'
             }
         }
+        
+    document.getElementById('dealers1stCardTLN').style.visibility = "hidden"
+    document.getElementById('dealers1stCardSuit').style.visibility = "hidden"
+    document.getElementById('dealers1stCardBRN').style.visibility = "hidden"
+
     dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
@@ -1435,8 +1466,11 @@ function dealInitialCards (arr) {
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
         // dealerBlackjack(dealersHits)  
-        setTimeout(playerBlackjack(hitClickCount), 500)
-        setTimeout(dealerBlackjack(dealersHits), 500)
+
+        playerBlackjack(hitClickCount)
+            //the set timeout method is supposed to delay my alert from displaying by half a second. My intent is to have the alert display after the card is dealt. Instead, my game result alerts (stating who wins the game) are displaying before the last card is dealt.
+        dealerBlackjack(dealersHits)
+        //QUESTION 2 FOR 7/22/22: Why are my cards not displaying before my game result alerts when I have a timeout function to delay the alerts?
     }
 
 // dealInitialCards(tableDeck.deck)
@@ -1485,12 +1519,7 @@ function dealInitialCards (arr) {
     //queen of diamonds and 10 of clubs resulted in 19
 
 
-let dealPlayersCard3;
-let dealPlayersCard4;
-let dealPlayersCard5;
-let extract3rdPlayersCard;
-let extract4thPlayersCard;
-let extract5thPlayersCard;
+
 
 function dealHitCards (arr) {
     //PSEUDOCODE: this function is dealing my cards to the player based on the number of times they click the 'hit' button to request another card.
@@ -2352,16 +2381,11 @@ function dealHitCards (arr) {
                 }
                 // if either the dealer or the player hit 21 OR are dealt 5 cards without busting, i'm going to assign them a blackjack.
             } 
-            setTimeout(playerBlackjack(hitClickCount), 500)
-            //QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
+            playerBlackjack(hitClickCount)
+            //QUESTION 2 FOR 7/22/22: Why are my cards not displaying before my game result alerts when I have a timeout function to delay the alerts? 
         }  
 
-let dealDealersCard3;
-let dealDealersCard4;
-let dealDealersCard5;
-let extract3rdDealersCard;
-let extract4thDealersCard;
-let extract5thDealersCard;
+
 
 function dealDealersHitCards (arr) {
     //need to add functions or conditionals here
@@ -3206,18 +3230,23 @@ function dealDealersHitCards (arr) {
     }
 }
     }
-    setTimeout(playerBlackjack(hitClickCount), 500)
-    setTimeout(dealerBlackjack(dealersHits), 500)
-    setTimeout(compareHandsIfNoOneBusts(), 500)
+    //setTimeout(function() { alert("my message"); }, time)
+    playerBlackjack(hitClickCount)
+    dealerBlackjack(dealersHits)
+    compareHandsIfNoOneBusts()
+    alert('Dealer reveals their first card!')
+    document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+    document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+    document.getElementById('dealers1stCardBRN').style.visibility = "visible"
 }
 
 
-
 //buttons
+
 dealInitialCards(tableDeck.deck)
-console.log(tableDeck.deck)
 
 document.getElementById('startButton').addEventListener('click', () => {
+
     getGameplayContainer.style.visibility = 'visible';
     //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
 })
@@ -3233,16 +3262,40 @@ document.getElementById('stay').addEventListener('click', () => {
     dealDealersHitCards(tableDeck.deck)
 })
 
-// document.getElementById('restartButton').addEventListener('click', () => {
-//     //i tried using my button here to reset the start button's effect.
+document.getElementById('restartButton').addEventListener('click', () => {
+//i tried using my restart button here to reset all of my buttons' effects. I add the reset method below, grabbing each button from my DOM.
+//It does nothing.
+//I spent about 40 minutes on this. I found this reset method on mdn.
+//QUESTION 1 FOR 7/22/22: Any ideas on why this is not working?
+    //it's necessary for me to get this to work because I need to add a betting function, where the player will win the entire game after reaching $150.00.
+
 // document.getElementById('startButton').reset();
 // document.getElementById('hit').reset();
 // document.getElementById('stay').reset();
-//     //this is the reset method targeting the start button.
-// })
+//window.location.reload()
+    //reloads the game
+})
 
+//THANOS EVERYTHING
+function enableAgainAllButtons(){
+    document.getElementById('hit').style.pointerEvents = 'auto';
+    document.getElementById('stay').style.pointerEvents = 'auto';
+    document.getElementById('toBetAmount').style.pointerEvents = 'auto';
+    document.getElementById('bankroll').style.pointerEvents = 'auto';
+    document.getElementById('startButton').style.pointerEvents = 'auto';
+}
 
-
+document.getElementById('restartButton').addEventListener('click', () => {
+    winner = 'TBD';
+    user.playerHand = 0;
+    mrHouse.dealerHand = 0;
+    hitClickCount = 0;
+    dealersHits = 0;
+    enableAgainAllButtons()
+    //e.g.: 
+    playerCard1TopNumber.innerText = ''
+    playerCard2TopNumber.inner
+})
 
 
 
