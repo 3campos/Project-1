@@ -2613,6 +2613,285 @@ function dealDealersHitCards (arr) {
         if (dealDealersCard3.includes('Spades')){
             dealerCard3Suit.innerText='♠️'
         }
+    }
+
+    //need to add functions or conditionals here
+    dealDealersCard4 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
+    extract4thDealersCard = arr.indexOf(dealDealersCard4)
+    tableDeck.deck.splice(extract4thDealersCard, 1)
+    if (dealDealersCard4.startsWith("A")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = 'A'
+        dealerCard4BottomNumber.innerText = 'A'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard3.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("2")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '2'
+        dealerCard4BottomNumber.innerText = '2'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("3")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '3'
+        dealerCard4BottomNumber.innerText = '3'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("4")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '4'
+        dealerCard4BottomNumber.innerText = '4'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("5")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '5'
+        dealerCard4BottomNumber.innerText = '5'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("6")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '6'
+        dealerCard4BottomNumber.innerText = '6'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("7")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '7'
+        dealerCard4BottomNumber.innerText = '7'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("8")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '8'
+        dealerCard4BottomNumber.innerText = '8'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("9")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '9'
+        dealerCard4BottomNumber.innerText = '9'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("10")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = '10'
+        dealerCard4BottomNumber.innerText = '10'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("Jack")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = 'J'
+        dealerCard4BottomNumber.innerText = 'J'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("Queen")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = 'Q'
+        dealerCard4BottomNumber.innerText = 'Q'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
+    } else if (dealDealersCard4.startsWith("King")){
+        mrHouse.dealerHand += 1
+        dealerCard4TopNumber.innerText = 'K'
+        dealerCard4BottomNumber.innerText = 'K'
+        dealerCard4Style.backgroundColor='white'
+
+        if (dealDealersCard4.includes('Clubs')){
+            dealerCard4Suit.innerText='♣️'
+        }
+
+        if (dealDealersCard4.includes('Diamonds')){
+            dealerCard4Suit.innerText='♦️'
+        } 
+
+        if (dealDealersCard4.includes('Hearts')){
+            dealerCard4Suit.innerText='♥️'
+        } 
+
+        if (dealDealersCard4.includes('Spades')){
+            dealerCard4Suit.innerText='♠️'
+        }
     } 
 }
 
