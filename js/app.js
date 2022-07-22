@@ -219,7 +219,7 @@ function playerBlackjack(clicks){
         }
     }
 
-function playerBlackjack(hits){
+function dealerBlackjack(hits){
     if(mrHouse.dealerHand===21){
         alert('Dealer has a blackjack! Dealer Wins!')
     } else if (mrHouse.dealerHand<=21 && hits === 3){
