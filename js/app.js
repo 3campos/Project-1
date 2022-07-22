@@ -798,7 +798,7 @@ function dealInitialCards (arr) {
                 playerCard2Suit.innerText='♠️'
             }
         }
-        dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
+    dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
     extract1stDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
     //getting the index of the card randomly dealt.
@@ -1085,7 +1085,7 @@ function dealInitialCards (arr) {
         dealerCard1Suit.innerText='♠️'
     } 
 }
-            
+     
             
 
 
@@ -1408,7 +1408,7 @@ function dealInitialCards (arr) {
     // return tableDeck.deck
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
-        console.log(dealPlayersCard1, dealPlayersCard2)
+        dealerBlackjack(dealersHits)  
         playerBlackjack(hitClickCount)
     }
 
@@ -1465,7 +1465,12 @@ let extract3rdPlayersCard;
 let extract4thPlayersCard;
 let extract5thPlayersCard;
 
-
+let dealDealersCard3;
+let dealDealersCard4;
+let dealDealersCard5;
+let extract3rdDealersCard;
+let extract4thDealersCard;
+let extract5thDealersCard;
 
 
 function dealHitCards (arr) {
