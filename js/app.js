@@ -209,20 +209,21 @@ const BlackjackTable = new Table('should call upon createPot method result')
 
 let hitClickCount = 0;
         //Global functions
-function playerBlackjack(clicks){
+function playerBlackjack(playersClicks){
         if(user.playerHand===21){
             alert('Player has a blackjack! Player Wins!')
-        } else if (user.playerHand<=21 && clicks === 3){
+        } else if (user.playerHand<=21 && playersClicks === 3){
             alert('Player has a blackjack! Player Wins!')
         } else if (user.playerHand > 21){
             alert('Player busts! Dealer Wins!')
         }
     }
 
-function dealerBlackjack(hits){
+let dealerHitCount = 0;
+function dealerBlackjack(dealersHits){
     if(mrHouse.dealerHand===21){
         alert('Dealer has a blackjack! Dealer Wins!')
-    } else if (mrHouse.dealerHand<=21 && hits === 3){
+    } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
         alert('Dealer has a blackjack! Dealer Wins!')
     } else if (mrHouse.dealerHand > 21){
         alert('Dealer busts! Player Wins!')
