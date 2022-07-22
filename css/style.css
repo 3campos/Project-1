@@ -103,25 +103,6 @@ body{
 }
 
 .dealersHand, .playersHand{
-    /*flex box created and set to row for the cards' elements and child divs. the child divs are the text */
-
-    /*IGNORE LINES 111-125*/
-
-    /*create a flexbox container*/
-    
-    /*justifying content to the right */
-    /*my question: my goal is to put my inner text have my cards look like playing cards. Is it possible to align the top number to the top right and the other to the bottom left using flexbox? My plan would be to:
-    1. create a div for each number within each card. So:   
-        a. one div for the number in the top right corner.
-        b. one div for the number in the bottom left corner.
-        c. another div for the suit in the center.
-    2.do innertext for the numbers
-    3. do innertext or add image links for each suit
-    4. use align-self for each div
-        //should I be using absolute/relative positioning instead? I'm very weak on th
-    keeping the cards the same size would prevent issues with flexbox sizing
-    */
-
     display: flex;
     flex-direction: row;
     width: 60px;
@@ -147,7 +128,7 @@ body{
     /*THIS ALIGNS THE TOP CARD TEXT TO THE LEFT OF THE CONTAINER*/
 }
 
-.dealersCardSuits{
+.playersCardSuits, .dealersCardSuits{
     display: flex;
     /*FLEX CONTAINER CREATED*/
     flex-direction: row;
@@ -158,7 +139,7 @@ body{
     /* aligning the suit to the center of the card*/
 }
 
-.dealersBottomCardNumbers{
+.playersBottomCardNumbers, .dealersBottomCardNumbers{
     display: flex;
     /*FLEX CONTAINER CREATED*/
     flex-direction: row;

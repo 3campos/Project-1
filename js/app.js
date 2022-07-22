@@ -167,6 +167,15 @@ user.playerHit()
 user.playerBetAmount()
 user.playerMoneyMethod()
 
+//Global functions
+function playerBlackjack(){
+    if(user.playerhand===21){
+        alert('Player has a blackjack! Player Wins!')
+    } else if (user.playerhand<=21 && hitClickCount === 3){
+        alert('Player has a blackjack! Player Wins!')
+    }
+}
+
 class Dealer {
     constructor(name, dealerHand){
         this.name = name
@@ -492,7 +501,7 @@ function dealInitialCards (arr) {
     if (dealDealersCard1.includes('Spades')){
         dealerCard1Suit.innerText='♠️'
     } 
-} 
+}
             
             
 
@@ -512,7 +521,7 @@ function dealInitialCards (arr) {
 
     dealDealersCard2 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
-    extract2ndDealersCard = tableDeck.deck.indexOf(dealDealersCard1)
+    extract2ndDealersCard = tableDeck.deck.indexOf(dealDealersCard2)
      //getting the index of the card randomly dealt.
     tableDeck.deck.splice(extract2ndDealersCard, 1)
     //extracting the randomly dealt card from the array
@@ -735,7 +744,7 @@ function dealInitialCards (arr) {
             dealerCard2Suit.innerText='♠️'
         }
         } else if (dealDealersCard2.startsWith("Jack")){
-            mrHouse.dealerHand += 10
+        mrHouse.dealerHand += 10
         dealerCard2TopNumber.innerText = 'J'        
         dealerCard2BottomNumber.innerText = 'J'   
         dealerCard2Style.backgroundColor='white'
@@ -756,7 +765,7 @@ function dealInitialCards (arr) {
             dealerCard2Suit.innerText='♠️'
         }
         }else if (dealDealersCard2.startsWith("Queen")){
-            mrHouse.dealerHand += 10
+        mrHouse.dealerHand += 10
         dealerCard2TopNumber.innerText = 'Q'        
         dealerCard2BottomNumber.innerText = 'Q'   
         dealerCard2Style.backgroundColor='white'
@@ -813,8 +822,8 @@ console.log(dealDealersCard1, dealDealersCard2)
     //extracting the randomly dealt card from the array
     if (dealPlayersCard1.startsWith("A")){
         user.playerHand += 1
-        playerCard1TopNumber = 'A'
-        playerCard1BottomNumber = 'A'
+        playerCard1TopNumber.innerText = 'A'
+        playerCard1BottomNumber.innerText = 'A'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -835,8 +844,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         } else if (dealPlayersCard1.startsWith("2")){
         user.playerHand += 2
 
-        playerCard1TopNumber = '2'
-        playerCard1BottomNumber = '2'
+        playerCard1TopNumber.innerText = '2'
+        playerCard1BottomNumber.innerText = '2'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -853,10 +862,11 @@ console.log(dealDealersCard1, dealDealersCard2)
 
         if (dealPlayersCard1.includes('Spades')){
             playerCard1Suit.innerText='♠️'
+        } 
         } else if (dealPlayersCard1.startsWith("3")){
         user.playerHand +=3
-        playerCard1TopNumber = '3'
-        playerCard1BottomNumber = '3'
+        playerCard1TopNumber.innerText = '3'
+        playerCard1BottomNumber.innerText = '3'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -878,8 +888,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         } else if (dealPlayersCard1.startsWith("4")){
         user.playerHand += 4
 
-        playerCard1TopNumber = '4'
-        playerCard1BottomNumber = '4'
+        playerCard1TopNumber.innerText = '4'
+        playerCard1BottomNumber.innerText = '4'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -900,7 +910,7 @@ console.log(dealDealersCard1, dealDealersCard2)
 
         } else if (dealPlayersCard1.startsWith("5")){
         user.playerHand += 5
-        playerCard1TopNumber = '5'
+        playerCard1TopNumber.innerText = '5'
         playerCard1BottomNumber = '5'
         playerCard1Style.backgroundColor='white'
 
@@ -921,7 +931,7 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("6")){
         user.playerHand += 6
-        playerCard1TopNumber = '6'
+        playerCard1TopNumber.innerText = '6'
         playerCard1BottomNumber = '6'
         playerCard1Style.backgroundColor='white'
 
@@ -942,8 +952,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("7")){
         user.playerHand += 7
-        playerCard1TopNumber = '7'
-        playerCard1BottomNumber = '7'
+        playerCard1TopNumber.innerText = '7'
+        playerCard1BottomNumber.innerText = '7'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -963,8 +973,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("8")){
         user.playerHand += 8
-        playerCard1TopNumber = '8'
-        playerCard1BottomNumber = '8'
+        playerCard1TopNumber.innerText = '8'
+        playerCard1BottomNumber.innerText = '8'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -984,8 +994,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("9")){
         user.playerHand += 9
-        playerCard1TopNumber = '9'
-        playerCard1BottomNumber = '9'
+        playerCard1TopNumber.innerText = '9'
+        playerCard1BottomNumber.innerText = '9'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -1005,8 +1015,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("10")){
         user.playerHand += 10
-        playerCard1TopNumber = '10'
-        playerCard1BottomNumber = '10'
+        playerCard1TopNumber.innerText = '10'
+        playerCard1BottomNumber.innerText = '10'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -1026,8 +1036,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("Jack")){
             user.playerHand += 10
-            playerCard1TopNumber = 'J'
-        playerCard1BottomNumber = 'J'
+            playerCard1TopNumber.innerText = 'J'
+        playerCard1BottomNumber.innerText = 'J'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -1047,8 +1057,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("Queen")){
             user.playerHand += 10
-            playerCard1TopNumber = 'Q'
-        playerCard1BottomNumber = 'Q'
+        playerCard1TopNumber.innerText = 'Q'
+        playerCard1BottomNumber.innerText = 'Q'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -1068,8 +1078,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard1.startsWith("King")){
             user.playerHand += 10
-            playerCard1TopNumber = 'K'
-        playerCard1BottomNumber = 'K'
+            playerCard1TopNumber.innerText = 'K'
+        playerCard1BottomNumber.innerText = 'K'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -1097,8 +1107,8 @@ console.log(dealDealersCard1, dealDealersCard2)
     //extracting the randomly dealt card from the array
     if (dealPlayersCard2.startsWith("A")){
         user.playerHand += 1
-        playerCard2TopNumber = 'A'
-        playerCard2BottomNumber = 'A'
+        playerCard2TopNumber.innerText = 'A'
+        playerCard2BottomNumber.innerText = 'A'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1118,8 +1128,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("2")){
         user.playerHand += 2
-        playerCard2TopNumber = '2'
-        playerCard2BottomNumber = '2'
+        playerCard2TopNumber.innerText = '2'
+        playerCard2BottomNumber.innerText = '2'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1139,8 +1149,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("3")){
         user.playerHand +=3
-        playerCard2TopNumber = '3'
-        playerCard2BottomNumber = '3'
+        playerCard2TopNumber.innerText = '3'
+        playerCard2BottomNumber.innerText = '3'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1160,8 +1170,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("4")){
         user.playerHand += 4
-        playerCard2TopNumber = '4'
-        playerCard2BottomNumber = '4'
+        playerCard2TopNumber.innerText = '4'
+        playerCard2BottomNumber.innerText = '4'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1181,8 +1191,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("5")){
         user.playerHand += 5
-        playerCard2TopNumber = '5'
-        playerCard2BottomNumber = '5'
+        playerCard2TopNumber.innerText = '5'
+        playerCard2BottomNumber.innerText = '5'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1202,8 +1212,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("6")){
         user.playerHand += 6
-        playerCard2TopNumber = '6'
-        playerCard2BottomNumber = '6'
+        playerCard2TopNumber.innerText = '6'
+        playerCard2BottomNumber.innerText = '6'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1223,8 +1233,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("7")){
         user.playerHand += 7
-        playerCard2TopNumber = '7'
-        playerCard2BottomNumber = '7'
+        playerCard2TopNumber.innerText = '7'
+        playerCard2BottomNumber.innerText = '7'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1244,8 +1254,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("8")){
         user.playerHand += 8
-        playerCard2TopNumber = '8'
-        playerCard2BottomNumber = '8'
+        playerCard2TopNumber.innerText = '8'
+        playerCard2BottomNumber.innerText = '8'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1265,8 +1275,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("9")){
         user.playerHand += 9
-        playerCard2TopNumber = '9'
-        playerCard2BottomNumber = '9'
+        playerCard2TopNumber.innerText = '9'
+        playerCard2BottomNumber.innerText = '9'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1286,8 +1296,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("10")){   
             user.playerHand += 10
-            playerCard2TopNumber = '10'
-            playerCard2BottomNumber = '10'
+            playerCard2TopNumber.innerText = '10'
+            playerCard2BottomNumber.innerText = '10'
             playerCard2Style.backgroundColor='white'
     
             if (dealPlayersCard2.includes('Clubs')){
@@ -1307,8 +1317,8 @@ console.log(dealDealersCard1, dealDealersCard2)
             }
         } else if (dealPlayersCard2.startsWith("Jack")){
             user.playerHand += 10
-        playerCard2TopNumber = 'J'
-        playerCard2BottomNumber = 'J'
+        playerCard2TopNumber.innerText = 'J'
+        playerCard2BottomNumber.innerText = 'J'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1328,8 +1338,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("Queen")){
         user.playerHand += 10
-        playerCard2TopNumber = 'Q'
-        playerCard2BottomNumber = 'Q'
+        playerCard2TopNumber.innerText = 'Q'
+        playerCard2BottomNumber.innerText = 'Q'
         playerCard2Style.backgroundColor='white'
 
         if (dealPlayersCard2.includes('Clubs')){
@@ -1349,8 +1359,8 @@ console.log(dealDealersCard1, dealDealersCard2)
         }
         } else if (dealPlayersCard2.startsWith("King")){
             user.playerHand += 10
-            playerCard2TopNumber = 'K'
-            playerCard2BottomNumber = 'K'
+            playerCard2TopNumber.innerText = 'K'
+            playerCard2BottomNumber.innerText = 'K'
             playerCard2Style.backgroundColor='white'
     
             if (dealPlayersCard2.includes('Clubs')){
@@ -1387,7 +1397,9 @@ console.log(dealDealersCard1, dealDealersCard2)
     // return tableDeck.deck
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
-}
+        console.log(dealPlayersCard1, dealPlayersCard2)
+    }
+
 // dealInitialCards(tableDeck.deck)
 // console.log('dealInitialCards', tableDeck.deck)
 // console.log(dealPlayersCard1, dealPlayersCard2)
@@ -1456,8 +1468,8 @@ function dealHitCards (arr) {
         tableDeck.deck.splice(extract3rdPlayersCard, 1)
         if (dealPlayersCard3.startsWith("A")){
             user.playerHand += 1
-            playerCard3TopNumber = 'A'
-            playerCard3BottomNumber = 'A'
+            playerCard3TopNumber.innerText = 'A'
+            playerCard3BottomNumber.innerText = 'A'
             playerCard3Style.backgroundColor='white'
 
             if (dealPlayersCard3.includes('Clubs')){
@@ -1475,10 +1487,10 @@ function dealHitCards (arr) {
             if (dealPlayersCard3.includes('Spades')){
                 playerCard3Suit.innerText='♠️'
             }
-            else if (dealPlayersCard3.startsWith("2")){
+            } else if (dealPlayersCard3.startsWith("2")){
                 user.playerHand += 2
-                playerCard3TopNumber = '2'
-                playerCard3BottomNumber = '2'
+                playerCard3TopNumber.innerText = '2'
+                playerCard3BottomNumber.innerText = '2'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1498,8 +1510,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("3")){
                 user.playerHand +=3
-                playerCard3TopNumber = '3'
-                playerCar3BottomNumber = '3'
+                playerCard3TopNumber.innerText = '3'
+                playerCard3BottomNumber.innerText = '3'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1519,8 +1531,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("4")){
                 user.playerHand += 4
-                playerCard3TopNumber = '4'
-                playerCard3BottomNumber = '4'
+                playerCard3TopNumber.innerText = '4'
+                playerCard3BottomNumber.innerText = '4'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1540,8 +1552,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("5")){
                 user.playerHand += 5
-                playerCard3TopNumber = '5'
-                playerCard3BottomNumber = '5'
+                playerCard3TopNumber.innerText = '5'
+                playerCard3BottomNumber.innerText = '5'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1561,8 +1573,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("6")){
                 user.playerHand += 6
-                playerCard3TopNumber = '6'
-                playerCard3BottomNumber = '6'
+                playerCard3TopNumber.innerText = '6'
+                playerCard3BottomNumber.innerText = '6'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1582,8 +1594,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("7")){
                 user.playerHand += 7
-                playerCard3TopNumber = '7'
-                playerCard3BottomNumber = '7'
+                playerCard3TopNumber.innerText = '7'
+                playerCard3BottomNumber.innerText = '7'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1603,8 +1615,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("8")){
                 user.playerHand += 8
-                playerCard3TopNumber = '8'
-                playerCard3BottomNumber = '8'
+                playerCard3TopNumber.innerText = '8'
+                playerCard3BottomNumber.innerText = '8'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1624,8 +1636,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("9")){
                 user.playerHand += 9
-                playerCard3TopNumber = '9'
-                playerCard3BottomNumber = '9'
+                playerCard3TopNumber.innerText = '9'
+                playerCard3BottomNumber.innerText = '9'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1645,8 +1657,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("10")){   
                     user.playerHand += 10
-                    playerCard3TopNumber = '10'
-                    playerCard3BottomNumber = '10'
+                    playerCard3TopNumber.innerText = '10'
+                    playerCard3BottomNumber.innerText = '10'
                     playerCard3Style.backgroundColor='white'
             
                     if (dealPlayersCard3.includes('Clubs')){
@@ -1666,8 +1678,8 @@ function dealHitCards (arr) {
                     }
                 } else if (dealPlayersCard3.startsWith("Jack")){
                     user.playerHand += 10
-                playerCard3TopNumber = 'J'
-                playerCard3BottomNumber = 'J'
+                playerCard3TopNumber.innerText = 'J'
+                playerCard3BottomNumber.innerText = 'J'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1687,8 +1699,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("Queen")){
                 user.playerHand += 10
-                playerCard3TopNumber = 'Q'
-                playerCard3BottomNumber = 'Q'
+                playerCard3TopNumber.innerText = 'Q'
+                playerCard3BottomNumber.innerText = 'Q'
                 playerCard3Style.backgroundColor='white'
         
                 if (dealPlayersCard3.includes('Clubs')){
@@ -1708,8 +1720,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard3.startsWith("King")){
                     user.playerHand += 10
-                    playerCard3TopNumber = 'K'
-                    playerCard3BottomNumber = 'K'
+                    playerCard3TopNumber.innerText = 'K'
+                    playerCard3BottomNumber.innerText = 'K'
                     playerCard3Style.backgroundColor='white'
             
                     if (dealPlayersCard3.includes('Clubs')){
@@ -1742,8 +1754,8 @@ function dealHitCards (arr) {
         tableDeck.deck.splice(extract4thPlayersCard, 1)
         if (dealPlayersCard4.startsWith("A")){
             user.playerHand += 1
-            playerCard4TopNumber = 'A'
-            playerCard4BottomNumber = 'A'
+            playerCard4TopNumber.innerText = 'A'
+            playerCard4BottomNumber.innerText = 'A'
             playerCard4Style.backgroundColor='white'
 
             if (dealPlayersCard4.includes('Clubs')){
@@ -1761,10 +1773,10 @@ function dealHitCards (arr) {
             if (dealPlayersCard4.includes('Spades')){
                 playerCard4Suit.innerText='♠️'
             }
-            else if (dealPlayersCard4.startsWith("2")){
+            } else if (dealPlayersCard4.startsWith("2")){
                 user.playerHand += 2
-                playerCard4TopNumber = '2'
-                playerCard4BottomNumber = '2'
+                playerCard4TopNumber.innerText = '2'
+                playerCard4BottomNumber.innerText = '2'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1784,8 +1796,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("3")){
                 user.playerHand +=3
-                playerCard4TopNumber = '3'
-                playerCar4BottomNumber = '3'
+                playerCard4TopNumber.innerText = '3'
+                playerCard4BottomNumber.innerText = '3'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1805,8 +1817,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("4")){
                 user.playerHand += 4
-                playerCard4TopNumber = '4'
-                playerCard4BottomNumber = '4'
+                playerCard4TopNumber.innerText = '4'
+                playerCard4BottomNumber.innerText = '4'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1826,8 +1838,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("5")){
                 user.playerHand += 5
-                playerCard4TopNumber = '5'
-                playerCard4BottomNumber = '5'
+                playerCard4TopNumber.innerText = '5'
+                playerCard4BottomNumber.innerText = '5'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1847,8 +1859,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("6")){
                 user.playerHand += 6
-                playerCard4TopNumber = '6'
-                playerCard4BottomNumber = '6'
+                playerCard4TopNumber.innerText = '6'
+                playerCard4BottomNumber.innerText = '6'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1868,8 +1880,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("7")){
                 user.playerHand += 7
-                playerCard4TopNumber = '7'
-                playerCard4BottomNumber = '7'
+                playerCard4TopNumber.innerText = '7'
+                playerCard4BottomNumber.innerText = '7'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1889,8 +1901,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("8")){
                 user.playerHand += 8
-                playerCard4TopNumber = '8'
-                playerCard4BottomNumber = '8'
+                playerCard4TopNumber.innerText = '8'
+                playerCard4BottomNumber.innerText = '8'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1910,8 +1922,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("9")){
                 user.playerHand += 9
-                playerCard4TopNumber = '9'
-                playerCard4BottomNumber = '9'
+                playerCard4TopNumber.innerText = '9'
+                playerCard4BottomNumber.innerText = '9'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1931,8 +1943,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("10")){   
                     user.playerHand += 10
-                    playerCard4TopNumber = '10'
-                    playerCard4BottomNumber = '10'
+                    playerCard4TopNumber.innerText = '10'
+                    playerCard4BottomNumber.innerText = '10'
                     playerCard4Style.backgroundColor='white'
             
                     if (dealPlayersCard4.includes('Clubs')){
@@ -1952,8 +1964,8 @@ function dealHitCards (arr) {
                     }
                 } else if (dealPlayersCard4.startsWith("Jack")){
                     user.playerHand += 10
-                playerCard4TopNumber = 'J'
-                playerCard4BottomNumber = 'J'
+                playerCard4TopNumber.innerText = 'J'
+                playerCard4BottomNumber.innerText = 'J'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1973,8 +1985,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("Queen")){
                 user.playerHand += 10
-                playerCard4TopNumber = 'Q'
-                playerCard4BottomNumber = 'Q'
+                playerCard4TopNumber.innerText = 'Q'
+                playerCard4BottomNumber.innerText = 'Q'
                 playerCard4Style.backgroundColor='white'
         
                 if (dealPlayersCard4.includes('Clubs')){
@@ -1994,8 +2006,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard4.startsWith("King")){
                     user.playerHand += 10
-                    playerCard4TopNumber = 'K'
-                    playerCard4BottomNumber = 'K'
+                    playerCard4TopNumber.innerText = 'K'
+                    playerCard4BottomNumber.innerText = 'K'
                     playerCard4Style.backgroundColor='white'
             
                     if (dealPlayersCard4.includes('Clubs')){
@@ -2014,8 +2026,14 @@ function dealHitCards (arr) {
                         playerCard4Suit.innerText='♠️'
                     }
                 }
+                //when the player or dealer reaches 21, i want the game to grant a blackjack to that person. so it's just as simple as adding an if function here (after all of the else if functions have run) with a condition that, e.g., if user.playerhand = 21, then call the method to display a blackjack alert.
+                    //do so
+                    //try a check winner function (global scope)
+                        //invoke that function here.
+                
         return tableDeck.deck
     }
+
     else if(hitClickCount === 3){
         dealPlayersCard5 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
         extract5thPlayersCard = arr.indexOf(dealPlayersCard5)
@@ -2023,8 +2041,8 @@ function dealHitCards (arr) {
         
         if (dealPlayersCard5.startsWith("A")){
             user.playerHand += 1
-            playerCard5TopNumber = 'A'
-            playerCard5BottomNumber = 'A'
+            playerCard5TopNumber.innerText = 'A'
+            playerCard5BottomNumber.innerText = 'A'
             playerCard5Style.backgroundColor='white'
 
             if (dealPlayersCard5.includes('Clubs')){
@@ -2042,10 +2060,11 @@ function dealHitCards (arr) {
             if (dealPlayersCard5.includes('Spades')){
                 playerCard5Suit.innerText='♠️'
             }
+        }
             else if (dealPlayersCard5.startsWith("2")){
                 user.playerHand += 2
-                playerCard5TopNumber = '2'
-                playerCard5BottomNumber = '2'
+                playerCard5TopNumber.innerText = '2'
+                playerCard5BottomNumber.innerText = '2'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2065,8 +2084,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("3")){
                 user.playerHand +=3
-                playerCard5TopNumber = '3'
-                playerCard5BottomNumber = '3'
+                playerCard5TopNumber.innerText = '3'
+                playerCard5BottomNumber.innerText = '3'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2086,8 +2105,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("4")){
                 user.playerHand += 4
-                playerCard5TopNumber = '4'
-                playerCard5BottomNumber = '4'
+                playerCard5TopNumber.innerText = '4'
+                playerCard5BottomNumber.innerText = '4'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2107,8 +2126,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("5")){
                 user.playerHand += 5
-                playerCard5TopNumber = '5'
-                playerCard5BottomNumber = '5'
+                playerCard5TopNumber.innerText = '5'
+                playerCard5BottomNumber.innerText = '5'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2128,8 +2147,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("6")){
                 user.playerHand += 6
-                playerCard5TopNumber = '6'
-                playerCard5BottomNumber = '6'
+                playerCard5TopNumber.innerText = '6'
+                playerCard5BottomNumber.innerText = '6'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2149,8 +2168,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("7")){
                 user.playerHand += 7
-                playerCard5TopNumber = '7'
-                playerCard5BottomNumber = '7'
+                playerCard5TopNumber.innerText = '7'
+                playerCard5BottomNumber.innerText = '7'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2170,8 +2189,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("8")){
                 user.playerHand += 8
-                playerCard5TopNumber = '8'
-                playerCard5BottomNumber = '8'
+                playerCard5TopNumber.innerText = '8'
+                playerCard5BottomNumber.innerText = '8'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2191,8 +2210,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("9")){
                 user.playerHand += 9
-                playerCard5TopNumber = '9'
-                playerCard5BottomNumber = '9'
+                playerCard5TopNumber.innerText = '9'
+                playerCard5BottomNumber.innerText = '9'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2212,8 +2231,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("10")){   
                     user.playerHand += 10
-                    playerCard5TopNumber = '10'
-                    playerCard5BottomNumber = '10'
+                    playerCard5TopNumber.innerText = '10'
+                    playerCard5BottomNumber.innerText = '10'
                     playerCard5Style.backgroundColor='white'
             
                     if (dealPlayersCard5.includes('Clubs')){
@@ -2232,9 +2251,9 @@ function dealHitCards (arr) {
                         playerCard5Suit.innerText='♠️'
                     }
                 } else if (dealPlayersCard5.startsWith("Jack")){
-                    user.playerHand += 10
-                playerCard5TopNumber = 'J'
-                playerCard5BottomNumber = 'J'
+                user.playerHand += 10
+                playerCard5TopNumber.innerText = 'J'
+                playerCard5BottomNumber.innerText = 'J'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2254,8 +2273,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("Queen")){
                 user.playerHand += 10
-                playerCard5TopNumber = 'Q'
-                playerCard5BottomNumber = 'Q'
+                playerCard5TopNumber.innerText = 'Q'
+                playerCard5BottomNumber.innerText = 'Q'
                 playerCard5Style.backgroundColor='white'
         
                 if (dealPlayersCard5.includes('Clubs')){
@@ -2275,8 +2294,8 @@ function dealHitCards (arr) {
                 }
                 } else if (dealPlayersCard5.startsWith("King")){
                     user.playerHand += 10
-                    playerCard5TopNumber = 'K'
-                    playerCard5BottomNumber = 'K'
+                    playerCard5TopNumber.innerText = 'K'
+                    playerCard5BottomNumber.innerText = 'K'
                     playerCard5Style.backgroundColor='white'
             
                     if (dealPlayersCard5.includes('Clubs')){
@@ -2295,10 +2314,10 @@ function dealHitCards (arr) {
                         playerCard5Suit.innerText='♠️'
                     }
                 }
-
-        return tableDeck.deck    
-    }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
-}
+                // if either the dealer or the player hit 21 OR are dealt 5 cards without busting, i'm going to assign them a blackjack.
+                return tableDeck.deck    
+            }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
+        }   
 
 
 //buttons
