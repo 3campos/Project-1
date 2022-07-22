@@ -167,14 +167,7 @@ user.playerHit()
 user.playerBetAmount()
 user.playerMoneyMethod()
 
-//Global functions
-function playerBlackjack(){
-    if(user.playerhand===21){
-        alert('Player has a blackjack! Player Wins!')
-    } else if (user.playerhand<=21 && hitClickCount === 3){
-        alert('Player has a blackjack! Player Wins!')
-    }
-}
+
 
 class Dealer {
     constructor(name, dealerHand){
@@ -213,6 +206,16 @@ const BlackjackTable = new Table('should call upon createPot method result')
 //EXAMPLE OF INDEXOF STRUCTURE: https://www.techonthenet.com/js/string_indexof.php
         // var totn_string = 'TechOnTheNet';
         // console.log(totn_string.indexOf('The'));
+
+let hitClickCount = 0;
+        //Global functions
+function playerBlackjack(clicks){
+        if(user.playerHand===21){
+            alert('Player has a blackjack! Player Wins!')
+        } else if (user.playerHand<=21 && clicks === 3){
+            alert('Player has a blackjack! Player Wins!')
+        }
+    }
 
 function dealInitialCards (arr) {
     dealDealersCard1 = arr[Math.floor(Math.random() * arr.length)]
@@ -808,11 +811,8 @@ function dealInitialCards (arr) {
         }
         }
 
-
-
-console.log(dealDealersCard1, dealDealersCard2)
-
 //SOURCE FOR MATCH ARROW FUNCTION USED ABOVE AND BELOW: https://bobbyhadz.com/blog/javascript-check-if-array-contains-substring-match. I REPETITIVELY USE THIS FUNCTION. I EXPLAINED EACH LINE OF CODE THE FIRST TIME I USED THE FUNCTION TO DEAL THE DEALER'S FIRST CARD.
+
 
     dealPlayersCard1 = arr[Math.floor(Math.random() * arr.length)]
     //getting a random card for first dealt card using math floor and random methods. this random card is being stored into my above variable.
@@ -911,7 +911,7 @@ console.log(dealDealersCard1, dealDealersCard2)
         } else if (dealPlayersCard1.startsWith("5")){
         user.playerHand += 5
         playerCard1TopNumber.innerText = '5'
-        playerCard1BottomNumber = '5'
+        playerCard1BottomNumber.innerText = '5'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -932,7 +932,7 @@ console.log(dealDealersCard1, dealDealersCard2)
         } else if (dealPlayersCard1.startsWith("6")){
         user.playerHand += 6
         playerCard1TopNumber.innerText = '6'
-        playerCard1BottomNumber = '6'
+        playerCard1BottomNumber.innerText = '6'
         playerCard1Style.backgroundColor='white'
 
         if (dealPlayersCard1.includes('Clubs')){
@@ -1398,6 +1398,7 @@ console.log(dealDealersCard1, dealDealersCard2)
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
         console.log(dealPlayersCard1, dealPlayersCard2)
+        playerBlackjack(hitClickCount)
     }
 
 // dealInitialCards(tableDeck.deck)
@@ -1445,13 +1446,16 @@ console.log(dealDealersCard1, dealDealersCard2)
     //king of spades and jack of spades resulted in 19
     //queen of diamonds and 10 of clubs resulted in 19
 
-let hitClickCount = 0;
+
 let dealPlayersCard3;
 let dealPlayersCard4;
 let dealPlayersCard5;
 let extract3rdPlayersCard;
 let extract4thPlayersCard;
 let extract5thPlayersCard;
+
+
+
 
 function dealHitCards (arr) {
     //PSEUDOCODE: this function is dealing my cards to the player based on the number of times they click the 'hit' button to request another card.
@@ -1740,8 +1744,7 @@ function dealHitCards (arr) {
                         playerCard3Suit.innerText='♠️'
                     }
                 }
-
-        return tableDeck.deck
+        playerBlackjack(hitClickCount)
         //QUESTION 1: is the above returning to the system as well as logging to the console? Just curious about whether it's doing both. I researched this but only found stack overflow articles.
             //answer: delete them. console logs should be removed by final product.
         //codecademy definition: console log = print to the console
@@ -2030,9 +2033,8 @@ function dealHitCards (arr) {
                     //do so
                     //try a check winner function (global scope)
                         //invoke that function here.
-                
-        return tableDeck.deck
-    }
+        playerBlackjack(hitClickCount)
+    } 
 
     else if(hitClickCount === 3){
         dealPlayersCard5 = arr[Math.floor(Math.random() * tableDeck.deck.length)]
@@ -2312,13 +2314,14 @@ function dealHitCards (arr) {
             
                     if (dealPlayersCard5.includes('Spades')){
                         playerCard5Suit.innerText='♠️'
-                    }
+                    } 
                 }
                 // if either the dealer or the player hit 21 OR are dealt 5 cards without busting, i'm going to assign them a blackjack.
-                return tableDeck.deck    
-            }//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
-        }   
+            } playerBlackjack(hitClickCount)//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
+        }  
 
+
+        
 
 //buttons
 dealInitialCards(tableDeck.deck)
