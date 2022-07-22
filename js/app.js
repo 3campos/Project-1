@@ -207,15 +207,29 @@ const BlackjackTable = new Table('should call upon createPot method result')
         // var totn_string = 'TechOnTheNet';
         // console.log(totn_string.indexOf('The'));
 
+//disable everything
+function disableAllButtons(){
+    document.getElementById('hit').style.pointerEvents = 'none';
+    document.getElementById('stay').style.pointerEvents = 'none';
+    document.getElementById('toBetAmount').style.pointerEvents = 'none';
+    document.getElementById('bankroll').style.pointerEvents = 'none';
+    document.getElementById('startButton').style.pointerEvents = 'none';
+}
+
+//Win tracking global functions
+
 let hitClickCount = 0;
-        //Global functions
+
 function playerBlackjack(playersClicks){
         if(user.playerHand===21){
             alert('Player has a blackjack! Player Wins!')
+            disableAllButtons()
         } else if (user.playerHand<=21 && playersClicks === 3){
             alert('Player has a blackjack! Player Wins!')
+            disableAllButtons()
         } else if (user.playerHand > 21){
             alert('Player busts! Dealer Wins!')
+            disableAllButtons()
         }
     }
 
@@ -223,13 +237,25 @@ let dealersHits = 0;
 function dealerBlackjack(dealersHits){
     if(mrHouse.dealerHand===21){
         alert('Dealer has a blackjack! Dealer Wins!')
+        disableAllButtons()
     } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
         alert('Dealer has a blackjack! Dealer Wins!')
+        disableAllButtons()
     } else if (mrHouse.dealerHand > 21){
         alert('Dealer busts! Player Wins!')
+        disableAllButtons()
     }
 }
 
+function compareHandsIfNoOneBusts(){
+    if(mrHouse.dealerHand > user.playerHand){
+        alert('Dealer has a higher hand. Dealer wins!')
+        disableAllButtons()
+    } else if(user.playerHand > user.playerHand){
+        alert('Player has a higher hand. Player wins!')
+        disableAllButtons()
+    }
+}
 
 function dealInitialCards (arr) {
 
@@ -1409,7 +1435,8 @@ function dealInitialCards (arr) {
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
         // dealerBlackjack(dealersHits)  
-        playerBlackjack(hitClickCount)
+        setTimeout(playerBlackjack(hitClickCount), 500)
+        setTimeout(dealerBlackjack(dealersHits), 500)
     }
 
 // dealInitialCards(tableDeck.deck)
@@ -1752,7 +1779,7 @@ function dealHitCards (arr) {
                         playerCard3Suit.innerText='♠️'
                     }
                 }
-        playerBlackjack(hitClickCount)
+        
         //QUESTION 1: is the above returning to the system as well as logging to the console? Just curious about whether it's doing both. I researched this but only found stack overflow articles.
             //answer: delete them. console logs should be removed by final product.
         //codecademy definition: console log = print to the console
@@ -2041,7 +2068,6 @@ function dealHitCards (arr) {
                     //do so
                     //try a check winner function (global scope)
                         //invoke that function here.
-        playerBlackjack(hitClickCount)
     } 
 
     else if(hitClickCount === 3){
@@ -2325,7 +2351,9 @@ function dealHitCards (arr) {
                     } 
                 }
                 // if either the dealer or the player hit 21 OR are dealt 5 cards without busting, i'm going to assign them a blackjack.
-            } playerBlackjack(hitClickCount)//QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
+            } 
+            setTimeout(playerBlackjack(hitClickCount), 500)
+            //QUESTION 2: By doing a return statement on any of the above if and else if functions, the system will: (1) make the hitClickCount variable increase by 1 permanently and (2) exit the function and go to the return statement with the string 'hitcount' below, right?    
         }  
 
 let dealDealersCard3;
@@ -2945,7 +2973,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("3")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 3
         dealerCard5TopNumber.innerText = '3'
         dealerCard5BottomNumber.innerText = '3'
         dealerCard5Style.backgroundColor='white'
@@ -2966,7 +2994,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("4")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 4
         dealerCard5TopNumber.innerText = '4'
         dealerCard5BottomNumber.innerText = '4'
         dealerCard5Style.backgroundColor='white'
@@ -2987,7 +3015,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("5")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 5
         dealerCard5TopNumber.innerText = '5'
         dealerCard5BottomNumber.innerText = '5'
         dealerCard5Style.backgroundColor='white'
@@ -3008,7 +3036,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("6")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 6
         dealerCard5TopNumber.innerText = '6'
         dealerCard5BottomNumber.innerText = '6'
         dealerCard5Style.backgroundColor='white'
@@ -3029,7 +3057,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("7")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 7
         dealerCard5TopNumber.innerText = '7'
         dealerCard5BottomNumber.innerText = '7'
         dealerCard5Style.backgroundColor='white'
@@ -3050,7 +3078,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("8")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 8
         dealerCard5TopNumber.innerText = '8'
         dealerCard5BottomNumber.innerText = '8'
         dealerCard5Style.backgroundColor='white'
@@ -3071,7 +3099,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("9")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 9
         dealerCard5TopNumber.innerText = '9'
         dealerCard5BottomNumber.innerText = '9'
         dealerCard5Style.backgroundColor='white'
@@ -3092,7 +3120,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("10")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard5TopNumber.innerText = '10'
         dealerCard5BottomNumber.innerText = '10'
         dealerCard5Style.backgroundColor='white'
@@ -3113,7 +3141,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("Jack")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard5TopNumber.innerText = 'J'
         dealerCard5BottomNumber.innerText = 'J'
         dealerCard5Style.backgroundColor='white'
@@ -3134,7 +3162,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("Queen")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard5TopNumber.innerText = 'Q'
         dealerCard5BottomNumber.innerText = 'Q'
         dealerCard5Style.backgroundColor='white'
@@ -3155,7 +3183,7 @@ function dealDealersHitCards (arr) {
             dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("King")){
-        mrHouse.dealerHand += 1
+        mrHouse.dealerHand += 10
         dealerCard5TopNumber.innerText = 'K'
         dealerCard5BottomNumber.innerText = 'K'
         dealerCard5Style.backgroundColor='white'
@@ -3178,6 +3206,9 @@ function dealDealersHitCards (arr) {
     }
 }
     }
+    setTimeout(playerBlackjack(hitClickCount), 500)
+    setTimeout(dealerBlackjack(dealersHits), 500)
+    setTimeout(compareHandsIfNoOneBusts(), 500)
 }
 
 
@@ -3191,13 +3222,6 @@ document.getElementById('startButton').addEventListener('click', () => {
     //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
 })
 
-document.getElementById('restartButton').addEventListener('click', () => {
-        //i tried using my button here to reset the start button's effect.
-    document.getElementById('startButton').reset();
-        //this is the reset method targeting the start button.
-})
-
-
 //a multiplication function to test the below arrow functions containing event listeners
 
 document.getElementById('hit').addEventListener('click', () => {
@@ -3208,6 +3232,17 @@ document.getElementById('stay').addEventListener('click', () => {
     document.getElementById('hit').style.pointerEvents = 'none';
     dealDealersHitCards(tableDeck.deck)
 })
+
+// document.getElementById('restartButton').addEventListener('click', () => {
+//     //i tried using my button here to reset the start button's effect.
+// document.getElementById('startButton').reset();
+// document.getElementById('hit').reset();
+// document.getElementById('stay').reset();
+//     //this is the reset method targeting the start button.
+// })
+
+
+
 
 
 
