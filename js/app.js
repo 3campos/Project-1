@@ -1408,7 +1408,7 @@ function dealInitialCards (arr) {
     // return tableDeck.deck
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
-        dealerBlackjack(dealersHits)  
+        // dealerBlackjack(dealersHits)  
         playerBlackjack(hitClickCount)
     }
 
@@ -3086,7 +3086,7 @@ function dealDealersHitCards (arr) {
         } 
 
         if (dealDealersCard5.includes('Spades')){
-            .innerText='♠️'
+            dealerCard5Suit.innerText='♠️'
         }
     } else if (dealDealersCard5.startsWith("10")){
         mrHouse.dealerHand += 1
@@ -3191,7 +3191,65 @@ document.getElementById('restartButton').addEventListener('click', () => {
         //this is the reset method targeting the start button.
 })
 
-document.getElementById('hit').addEventListener('click', () => {dealHitCards(tableDeck.deck)})
+
+//a multiplication function to test the below arrow functions containing event listeners
+
+document.getElementById('hit').addEventListener('click', () => {
+    dealHitCards(tableDeck.deck)
+})
+
+document.getElementById('stay').addEventListener('click', () => {
+    document.getElementById('hit').style.pointerEvents = 'none';
+})
+
+
+
+
+// //for debugging
+// //The purpose of the below removeEventListener method (in my 'stay button') is to stop the computer from responding to clicks by the user on the 'hit' button. In other words, if the user clicks on the 'stay' button', I want the computer to do absolutely nothing if the user tries to click on 'hit' afterwards.
+
+// function testFunction(number){
+//     console.log (number * number)
+// }
+// //a multiplication function to test the below arrow functions containing event listeners
+
+// document.getElementById('hit').addEventListener('click', () => {
+//     testFunction(2)
+//     //this is my 'hit' button arrow function. 
+//     //I use the getelementbyid method to select the 'hit' button.
+//     //When the player clicks on the 'hit' button, the below function will run.
+//     //The hit button works properly and logs '4' to the console.
+// })
+
+// document.getElementById('stay').addEventListener('click', () => {
+//     //this is my 'stay' button arrow function.
+//     //I use the getelementbyid method to select the 'stay' button.
+//     //When the player clicks on the 'stay' button, the below function will run.
+
+//     document.getElementById('hit').removeEventListener('click', 
+//     testFunction(2))
+//     //I use the getelementbyid method to select the 'hit' button.
+//         //I add a 'removeEventListener' method to stop the 'hit' button from responding to the user's clicks. 
+//         //I specify what function I do not want the computer to run inside of the removeEventListener's parameters.
+//     //clicking on the stay button logs 4 to the console.
+    
+//     //as mentioned above, what i want to happen is that when the user clicks on 'stay' it prevents the computer from doing anything if the user tries to hit 'hit' again.
+// })
+
+//assign a div to pointer events none. 
+    //do it in the styling.
+    //google pointer events; setting them to none. Then, look into adding class pointer events none
+
+
+
+
+
+
+    
+    // () => {
+    //     dealHitCards(tableDeck.deck
+
+
 
 //PLAN: Need to invoke a function here that assigns 21 to the players' hand. I can use the p assignment: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
             //step 1: add numerical values to each card in an array above for each card.
