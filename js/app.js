@@ -150,38 +150,33 @@ let extract3rdPlayersCard;
 let extract4thPlayersCard;
 let extract5thPlayersCard;
 
+let betPrompt;
 //END OF LIBRARY
 
 class Player {
-    constructor(name, playerHand, playerMoney){
+    constructor(name, playerHand, playerBetAmount, playerMoney){
         this.name = name
         this.playerHand = playerHand
+        this.playerBetAmount = playerBetAmount
         this.playerMoney = playerMoney
     }
-    promptForPlayerName(){
-        // if (playerName != null) {
-        // // document.getElementById('namePlayer').innerText = `${playerName}`
-        //     }
-        console.log('COMPLETE promptForPlayerName')}
-    playerHit(){
-        console.log('COMPLETE playerHit')
-    }
-    playerBetAmount(){
-        console.log('COMPLETE playerBetAmount')
+    playerBetAction(){    
+            betPrompt = prompt ('Enter a Bet Amount')
+            function promptForBet(){
+                if (betPrompt != null) {
+                document.getElementById('toBetAmount').innerText = `Bet Amount: $${betPrompt}`
+                }
+            }  
     }
     playerMoneyMethod(){
         console.log('COMPLETE playerMoneyMethod')
     }
 }
 
-const user = new Player('fill in with playerName variable', 0, `$${0}`)
+const user = new Player('', 0, `$${0}`, `$${0}`)
 
-user.promptForPlayerName()
-user.playerHit()
-user.playerBetAmount()
+user.playerBetAction()
 user.playerMoneyMethod()
-
-
 
 class Dealer {
     constructor(name, dealerHand){
@@ -3302,7 +3297,7 @@ document.getElementById('stay').addEventListener('click', () => {
     //reloads the game
 // })
 
-//THANOS EVERYTHING
+//THANOS SNAP EVERYTHING
 function enableAgainAllButtons(){
     document.getElementById('hit').style.pointerEvents = 'auto';
     document.getElementById('stay').style.pointerEvents = 'auto';
@@ -3319,7 +3314,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
     dealersHits = 0;
     tableDeck.deck
     enableAgainAllButtons()
-    //e.g.: 
+    
     playerCard1TopNumber.innerText = ''
     playerCard1Suit.innerText = ''
     playerCard1BottomNumber.innerText = ''
@@ -3520,11 +3515,7 @@ LINE 3
 //the below is a test to access specific card in array console.log(tableDeck.deck[3]). The result is 4 of hearts.
 //console.log(tableDeck.deck[3])
 
-// const playerName = prompt("Enter Your Name")
-//CONSOLE.LOGGING THIS OUT FOR NOW TO PREVENT HINDERANCES TO GIT ADDING/COMMITTING
-console.log('remember to turn prompt back on')
 
-// const playerName = 'Bond ... James Bond';
 
 
 
@@ -3542,6 +3533,14 @@ console.log('remember to turn prompt back on')
 
 
 //CODE GRAVEYARD
+
+//     promptForPlayerName(){
+//         // if (playerName != null) {
+//         // // document.getElementById('namePlayer').innerText = `${playerName}`
+//         //     }
+//         // const playerName = prompt("Enter Your Name")
+// console.log('remember to turn prompt back on')
+// // const playerName = 'Bond ... James Bond';
 
 //tried pushing values into card strings using destructuring
 // let heartsSuitCards = tableDeck.deck.indexOf('Ace of Spades', 0)
