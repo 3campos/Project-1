@@ -154,10 +154,10 @@ let betPrompt;
 //END OF LIBRARY
 
 class Player {
-    constructor(name, playerHand, playerBetAmount, playerMoney){
+    constructor(name, playerHand, playerBet, playerMoney){
         this.name = name
         this.playerHand = playerHand
-        this.playerBetAmount = playerBetAmount
+        this.playerBet = playerBet
         this.playerMoney = playerMoney
     }
     playerBetAction(){    
@@ -171,17 +171,21 @@ class Player {
         }
         if (betPrompt >= 5){
             document.getElementById('toBetAmount').innerText = `Bet: $${betPrompt}`
+            this.playerBet += betPrompt
             }
-    }
-    playerMoneyMethod(){
-        console.log('COMPLETE playerMoneyMethod')
-    }
+        }
 }
 
-const user = new Player('', 0, `$${0}`, `$${0}`)
+const user = new Player('', 0, 0, 100)
 
-user.playerBetAction()
-user.playerMoneyMethod()
+let getPot = document.getElementById('tablePot');
+let getBetAmount = document.getElementById('toBetAmount');
+let getBankroll = document.getElementById('bankroll');
+
+function playerMoneyMethod(){
+    getBankroll.innerText = `Bankroll = $${user.playerMoney -= user.playerBet}`
+    getPot.innerText = `$${user.playerBet}`
+}
 
 class Dealer {
     constructor(name, dealerHand){
@@ -192,19 +196,17 @@ class Dealer {
 
 const mrHouse = new Dealer('Mr. House', 0)
 
-class Table {
-    constructor(pot){
-        this.pot = pot
-    }
-    createPot(){
-        console.log('COMPLETE createPot')
-        //this method should call upon the function User.playerBetAmount because that is what will create the pot. Maybe I can just assign createPot() to this.pot.
-    }
-}
+// class Table {
+//     constructor(pot){
+//         this.pot = pot
+//     }
+//     addBetToPot(){
+//         document.getElementById('tablePot').innerText = 
+    
+//     }
+// }
 
-const BlackjackTable = new Table('should call upon createPot method result')
-
-
+// const BlackjackTable = new Table(`${0}`)
 
 //MASTER PLAN
     //1. assign values to cards when they're dealt= DONE!
@@ -243,18 +245,27 @@ function playerBlackjack(playersClicks){
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
             document.getElementById('dealers1stCardSuit').style.visibility = "visible"
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+            getPot.innerText = `$${0}`
+            getBetAmount.innerText = `$${0}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
         } else if (user.playerHand<=21 && playersClicks === 3){
             setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 100)
             disableAllButtons()
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
             document.getElementById('dealers1stCardSuit').style.visibility = "visible"
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+            getPot.innerText = `$${0}`
+            getBetAmount.innerText = `$${0}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
         } else if (user.playerHand > 21){
             setTimeout(function(){alert('Player busts! Dealer wins the round!'); }, 100)
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
             document.getElementById('dealers1stCardSuit').style.visibility = "visible"
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
             disableAllButtons()
+            getPot.innerText = `$${0}`
+            getBetAmount.innerText = `$${0}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney}`
         }
     }
 
@@ -266,22 +277,31 @@ function dealerBlackjack(dealersHits){
         winner = 'Dealer'
         disableAllButtons()
         document.getElementById('dealers1stCardTLN').style.visibility = "visible"
-            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
-            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+        document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+        document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+        getPot.innerText = `$${0}`
+        getBetAmount.innerText = `$${0}`
+        getBankroll.innerText = `Bankroll = $${user.playerMoney}`
     } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
         setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 100)
         winner = 'Dealer'
         disableAllButtons()
         document.getElementById('dealers1stCardTLN').style.visibility = "visible"
-            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
-            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+        document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+        document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+        getPot.innerText = `$${0}`
+        getBetAmount.innerText = `$${0}`
+        getBankroll.innerText = `Bankroll = $${user.playerMoney}`
     } else if (mrHouse.dealerHand > 21){
         setTimeout(function(){alert('Dealer busts! Player wins the round!'); }, 100)
         winner = 'Player'
         disableAllButtons()
         document.getElementById('dealers1stCardTLN').style.visibility = "visible"
-            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
-            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+        document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+        document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+        getPot.innerText = `$${0}`
+        getBetAmount.innerText = `$${0}`
+        getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
     }
 }
 
@@ -293,18 +313,27 @@ function compareHandsIfNoOneBusts(){
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
             document.getElementById('dealers1stCardSuit').style.visibility = "visible"
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+            getPot.innerText = `$${0}`
+            getBetAmount.innerText = `$${0}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney}`
         } else if(user.playerHand > mrHouse.dealerHand){
             setTimeout(function(){alert('Player has a higher hand. Player wins the round!'); }, 100)
             disableAllButtons()
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
             document.getElementById('dealers1stCardSuit').style.visibility = "visible"
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+            getPot.innerText = `$${0}`
+            getBetAmount.innerText = `$${0}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
         } else { //for draws
             setTimeout(function(){alert('The Player and Dealer have the same value. Draw!'); }, 100)
             disableAllButtons()
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
             document.getElementById('dealers1stCardSuit').style.visibility = "visible"
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
+            getPot.innerText = `$${0}`
+            getBetAmount.innerText = `$${0}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet}`
         }
     }
 }
@@ -1452,7 +1481,7 @@ function dealInitialCards (arr) {
             dealerCard2Suit.innerText='♠️'
         }
         } else if (dealDealersCard2.startsWith("King")){
-            mrHouse.dealerHand += 10
+        mrHouse.dealerHand += 10
         dealerCard2TopNumber.innerText = 'K'        
         dealerCard2BottomNumber.innerText = 'K'   
         dealerCard2Style.backgroundColor='white'
@@ -1492,10 +1521,12 @@ function dealInitialCards (arr) {
         //since user.playerhnad and mrhouse.dealer are global scope, I don't need to return them.
         //QUESTION 1: The values that I was having the cards assign to the variable that stored the players total card values were not matching their respective card. For example, a Jack of Spades face cards was showing a value of 9 instead of 10. After I commented out line 245, this resolved the issue. Why did this fix the card value  problem that I was having?
         // dealerBlackjack(dealersHits)  
-
         playerBlackjack(hitClickCount)
             //the set timeout method is supposed to delay my alert from displaying by half a second. My intent is to have the alert display after the card is dealt. Instead, my game result alerts (stating who wins the game) are displaying before the last card is dealt.
         dealerBlackjack(dealersHits)
+        setTimeout(function(){
+        user.playerBetAction();}, 200)
+        setTimeout(function(){playerMoneyMethod();}, 200)
         //QUESTION 2 FOR 7/22/22: Why are my cards not displaying before my game result alerts when I have a timeout function to delay the alerts?
     }
 
