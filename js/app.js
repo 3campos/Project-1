@@ -232,20 +232,28 @@ function disableAllButtons(){
 
 //Win tracking global functions
 
-
 let winner = 'TBD';
 
 let hitClickCount = 0;
 
 function playerBlackjack(playersClicks){
         if(user.playerHand===21){
-            setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 1000) 
+            setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 100) 
             disableAllButtons()
+            document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         } else if (user.playerHand<=21 && playersClicks === 3){
-            setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 1000)
+            setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 100)
             disableAllButtons()
+            document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         } else if (user.playerHand > 21){
-            setTimeout(function(){alert('Player busts! Dealer wins the round!'); }, 1000)
+            setTimeout(function(){alert('Player busts! Dealer wins the round!'); }, 100)
+            document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
             disableAllButtons()
         }
     }
@@ -254,31 +262,49 @@ let dealersHits = 0;
 
 function dealerBlackjack(dealersHits){
     if(mrHouse.dealerHand===21){
-        setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 1000)
+        setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 100)
         winner = 'Dealer'
         disableAllButtons()
+        document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
     } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
-        setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 1000)
+        setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 100)
         winner = 'Dealer'
         disableAllButtons()
+        document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
     } else if (mrHouse.dealerHand > 21){
-        setTimeout(function(){alert('Dealer busts! Player wins the round!'); }, 1000)
+        setTimeout(function(){alert('Dealer busts! Player wins the round!'); }, 100)
         winner = 'Player'
         disableAllButtons()
+        document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
     }
 }
 
 function compareHandsIfNoOneBusts(){
     if (winner === 'TBD'){
         if(mrHouse.dealerHand > user.playerHand){
-            setTimeout(function(){alert('Dealer has a higher hand. Dealer wins the round!'); }, 1000)
+            setTimeout(function(){alert('Dealer has a higher hand. Dealer wins the round!'); }, 100)
             disableAllButtons()
+            document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         } else if(user.playerHand > mrHouse.dealerHand){
-            setTimeout(function(){alert('Player has a higher hand. Player wins the round!'); }, 1000)
+            setTimeout(function(){alert('Player has a higher hand. Player wins the round!'); }, 100)
             disableAllButtons()
+            document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         } else { //for draws
-            setTimeout(function(){alert('The Player and Dealer have the same value. Draw!'); }, 1000)
+            setTimeout(function(){alert('The Player and Dealer have the same value. Draw!'); }, 100)
             disableAllButtons()
+            document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+            document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+            document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         }
     }
 }
@@ -929,9 +955,9 @@ function dealInitialCards (arr) {
 
         } else if (dealDealersCard1.startsWith("4")){
         mrHouse.dealerHand += 4
-                dealerCard1TopNumber.innerText = '4'
-                dealerCard1BottomNumber.innerText = '4'   
-                dealerCard1Style.backgroundColor='white'
+            dealerCard1TopNumber.innerText = '4'
+            dealerCard1BottomNumber.innerText = '4'   
+            dealerCard1Style.backgroundColor='white'
             
             if (dealDealersCard1.includes('Clubs')){
                 dealerCard1Suit.innerText='♣️'
@@ -3234,20 +3260,17 @@ function dealDealersHitCards (arr) {
     playerBlackjack(hitClickCount)
     dealerBlackjack(dealersHits)
     compareHandsIfNoOneBusts()
-    alert('Dealer reveals their first card!')
-    document.getElementById('dealers1stCardTLN').style.visibility = "visible"
-    document.getElementById('dealers1stCardSuit').style.visibility = "visible"
-    document.getElementById('dealers1stCardBRN').style.visibility = "visible"
 }
 
 
 //buttons
 
-dealInitialCards(tableDeck.deck)
+
 
 document.getElementById('startButton').addEventListener('click', () => {
-
+    dealInitialCards(tableDeck.deck)
     getGameplayContainer.style.visibility = 'visible';
+    document.getElementById('startButton').style.pointerEvents = 'none';
     //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
 })
 
@@ -3259,10 +3282,13 @@ document.getElementById('hit').addEventListener('click', () => {
 
 document.getElementById('stay').addEventListener('click', () => {
     document.getElementById('hit').style.pointerEvents = 'none';
+    document.getElementById('dealers1stCardTLN').style.visibility = "visible"
+    document.getElementById('dealers1stCardSuit').style.visibility = "visible"
+    document.getElementById('dealers1stCardBRN').style.visibility = "visible"
     dealDealersHitCards(tableDeck.deck)
 })
 
-document.getElementById('restartButton').addEventListener('click', () => {
+// document.getElementById('restartButton').addEventListener('click', () => {
 //i tried using my restart button here to reset all of my buttons' effects. I add the reset method below, grabbing each button from my DOM.
 //It does nothing.
 //I spent about 40 minutes on this. I found this reset method on mdn.
@@ -3274,7 +3300,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
 // document.getElementById('stay').reset();
 //window.location.reload()
     //reloads the game
-})
+// })
 
 //THANOS EVERYTHING
 function enableAgainAllButtons(){
@@ -3291,13 +3317,60 @@ document.getElementById('restartButton').addEventListener('click', () => {
     mrHouse.dealerHand = 0;
     hitClickCount = 0;
     dealersHits = 0;
+    tableDeck.deck
     enableAgainAllButtons()
     //e.g.: 
     playerCard1TopNumber.innerText = ''
-    playerCard2TopNumber.inner
+    playerCard1Suit.innerText = ''
+    playerCard1BottomNumber.innerText = ''
+    playerCard1Style.backgroundColor = ''
+
+    playerCard2TopNumber.innerText = ''
+    playerCard2Suit.innerText = ''
+    playerCard2BottomNumber.innerText = ''
+    playerCard2Style.backgroundColor = ''
+
+    playerCard3TopNumber.innerText = ''
+    playerCard3BottomNumber.innerText = ''
+    playerCard3Style.backgroundColor=''
+    playerCard3Suit.innerText=''
+
+    playerCard4TopNumber.innerText = ''
+    playerCard4BottomNumber.innerText = ''
+    playerCard4Style.backgroundColor=''
+    playerCard4Suit.innerText=''
+
+    playerCard5TopNumber.innerText = ''
+    playerCard5BottomNumber.innerText = ''
+    playerCard5Style.backgroundColor=''
+    playerCard5Suit.innerText=''
+
+    dealerCard1TopNumber.innerText = ''
+    dealerCard1Suit.innerText = ''
+    dealerCard1BottomNumber.innerText = ''
+    dealerCard1Style.backgroundColor= ''
+
+    dealerCard2TopNumber.innerText = ''        
+    dealerCard2BottomNumber.innerText = ''   
+    dealerCard2Style.backgroundColor=''
+    dealerCard2Suit.innerText=''
+
+    dealerCard3TopNumber.innerText = ''        
+    dealerCard3BottomNumber.innerText = ''   
+    dealerCard3Style.backgroundColor=''
+    dealerCard3Suit.innerText=''
+
+    dealerCard4TopNumber.innerText = ''        
+    dealerCard4BottomNumber.innerText = ''   
+    dealerCard4Style.backgroundColor=''
+    dealerCard4Suit.innerText=''
+
+    dealerCard5TopNumber.innerText = ''        
+    dealerCard5BottomNumber.innerText = ''   
+    dealerCard5Style.backgroundColor=''
+    dealerCard5Suit.innerText=''
+
 })
-
-
 
 
 // //for debugging
