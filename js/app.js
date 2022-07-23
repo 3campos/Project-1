@@ -86,19 +86,19 @@ let dealerCard2Suit = document.getElementById('dealers2ndCardSuit')
 let dealerCard2BottomNumber = document.getElementById('dealers2ndCardBRN')
 
 let dealerCard3Style = document.getElementById('dealerCard3').style
-let  dealerCard3TopNumber = document.getElementById('dealers3rdCardTLN')
+let dealerCard3TopNumber = document.getElementById('dealers3rdCardTLN')
 let dealerCard3Suit = document.getElementById('dealers3rdCardSuit')
 let dealerCard3BottomNumber = document.getElementById('dealers3rdCardBRN')
 
 
 let dealerCard4Style = document.getElementById('dealerCard4').style
-let  dealerCard4TopNumber = document.getElementById('dealers4thCardTLN')
+let dealerCard4TopNumber = document.getElementById('dealers4thCardTLN')
 let dealerCard4Suit = document.getElementById('dealers4thCardSuit')
 let dealerCard4BottomNumber = document.getElementById('dealers4thCardBRN')
 
 
 let dealerCard5Style = document.getElementById('dealerCard5').style
-let  dealerCard5TopNumber = document.getElementById('dealers5thCardTLN')
+let dealerCard5TopNumber = document.getElementById('dealers5thCardTLN')
 let dealerCard5Suit = document.getElementById('dealers5thCardSuit')
 let dealerCard5BottomNumber = document.getElementById('dealers5thCardBRN')
 
@@ -171,6 +171,8 @@ class Player {
     }
     playerBetAction(){    
         betPrompt = prompt ('Enter a Bet Amount. A $5 minimum is required: $')
+        //need to parseint the  prompt
+
         // if (betPrompt >= 5) {
         // document.getElementById('toBetAmount').innerText = `Bet Amount: $${betPrompt}`
         // } 
@@ -180,10 +182,11 @@ class Player {
         }
         if (betPrompt >= 5){
             document.getElementById('toBetAmount').innerText = `Bet: $${betPrompt}`
-            this.playerBet += betPrompt
-            }
+            }   
+            // document.getElementById('toBetAmount').innerText = parseInt(`Bet: $${betPrompt}`)
         }
-}
+    }
+
 
 const user = new Player('', 0, 0, 100)
 
@@ -192,10 +195,17 @@ let getBetAmount = document.getElementById('toBetAmount');
 let getBankroll = document.getElementById('bankroll');
 
 function playerMoneyMethod(){
+    user.playerBet.innerText = parseInt(`${betPrompt}`)
+    user.playerBet = parseInt(`${betPrompt}`)
+    // console.log(user.playerBet, user.playerMoney)
     getBankroll.innerText = `Bankroll = $${user.playerMoney -= user.playerBet}`
     getBetAmount.innerText = `$${user.playerBet}`
     getPot.innerText = `$${user.playerBet}`
+    //one issue: may need to parseint fof playerbet
 }
+
+
+
 
 class Dealer {
     constructor(name, dealerHand){
@@ -258,6 +268,13 @@ function playerBlackjack(playersClicks){
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
             getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
+            if (user.playerMoney <= 0){
+                setTimeout(function(){alert('Player loses the game. Click Ok to try again.');}, 250)
+                setTimeout(function(){window.location.reload(); }, 2000)
+            } else if (user.playerMoney >= 150){
+                setTimeout(function(){alert('Player wins the game! Click Ok to play again.');}, 250)
+                setTimeout(function(){window.location.reload(); }, 2000)
+            }
         } else if (user.playerHand<=21 && playersClicks === 3){
             setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 100)
             disableAllButtons()
@@ -267,6 +284,13 @@ function playerBlackjack(playersClicks){
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
             getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
+            if (user.playerMoney <= 0){
+                setTimeout(function(){alert('Player loses the game. Click Ok to try again.');}, 250)
+                setTimeout(function(){window.location.reload(); }, 2000)
+            } else if (user.playerMoney >= 150){
+                setTimeout(function(){alert('Player wins the game! Click Ok to play again.');}, 250)
+                setTimeout(function(){window.location.reload(); }, 2000)
+            }
         } else if (user.playerHand > 21){
             setTimeout(function(){alert('Player busts! Dealer wins the round!'); }, 100)
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
@@ -275,6 +299,13 @@ function playerBlackjack(playersClicks){
             disableAllButtons()
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
+            if (user.playerMoney <= 0){
+                setTimeout(function(){alert('Player loses the game. Click Ok to try again.');}, 250)
+                setTimeout(function(){window.location.reload(); }, 2000)
+            } else if (user.playerMoney >= 150){
+                setTimeout(function(){alert('Player wins the game! Click Ok to play again.');}, 250)
+                setTimeout(function(){window.location.reload(); }, 2000)
+            }
         }
     }
 
@@ -290,7 +321,7 @@ function dealerBlackjack(dealersHits){
         document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         getPot.innerText = `$${0}`
         getBetAmount.innerText = `$${0}`
-    } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
+        } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
         setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 100)
         winner = 'Dealer'
         disableAllButtons()
@@ -299,6 +330,7 @@ function dealerBlackjack(dealersHits){
         document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         getPot.innerText = `$${0}`
         getBetAmount.innerText = `$${0}`
+
     } else if (mrHouse.dealerHand > 21){
         setTimeout(function(){alert('Dealer busts! Player wins the round!'); }, 100)
         winner = 'Player'
@@ -310,7 +342,15 @@ function dealerBlackjack(dealersHits){
         getBetAmount.innerText = `$${0}`
         getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
     }
+    if (user.playerMoney <= 0){
+        setTimeout(function(){alert('Player loses the game. Click Ok to try again.');}, 250)
+        setTimeout(function(){window.location.reload(); }, 2000)
+    } else if (user.playerMoney >= 150){
+        setTimeout(function(){alert('Player wins the game! Click Ok to play again.');}, 250)
+        setTimeout(function(){window.location.reload(); }, 2000)
+    }
 }
+
 
 function compareHandsIfNoOneBusts(){
     if (winner === 'TBD'){
@@ -340,6 +380,13 @@ function compareHandsIfNoOneBusts(){
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
             getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet}`
+            }
+        if (user.playerMoney <= 0){
+            setTimeout(function(){alert('Player loses the game. This page will refresh in 2 seconds');}, 250)
+            setTimeout(function(){window.location.reload(); }, 2000)
+        } else if (user.playerMoney >= 150){
+            setTimeout(function(){alert('Player wins the game! This page will refresh in 2 seconds');}, 250)
+            setTimeout(function(){window.location.reload(); }, 2000)
         }
     }
 }
@@ -1532,61 +1579,14 @@ function dealInitialCards (arr) {
         dealerBlackjack(dealersHits)
         setTimeout(function(){
             user.playerBetAction();}, 200)
-        console.log(setTimeout(function(){playerMoneyMethod();}, 200))
+       setTimeout(function(){playerMoneyMethod();}, 200)
             //For 7/23/22: if i console log the above playerMoneyMethod, I get 'undefined' in chrome.
-
+        
         //QUESTION 2 FOR 7/22/22: Why are my cards not displaying before my game result alerts when I have a timeout function to delay the alerts?
     }
 
-// dealInitialCards(tableDeck.deck)
-// console.log('dealInitialCards', tableDeck.deck)
-// console.log(dealPlayersCard1, dealPlayersCard2)
-// console.log('FIRSTDEALRESULTS', user.playerHand)
-    //RESOLVED: why won't all of my players' card values add properly based on my if functions above? The cards that don't appear to add to my playerhand variable are 8, 9, and at least some of my face cards? 
-//when 8 or 9 is my first card, the addition to my playerHand variable does not work properly:
-    //9 of hearts and 8 of spades resulted in '8'.
-    //9 of hearts and 6 of hearts resulted in '6'.
-    //9 of hearts and jack of clubs resulted in '10'.
-    //9 of diamonds and 3 of hearts resulted in '3'.
-    //9 of clubs and 3 of diamonds resulted in '3'.
-    
-    //8 of hearts and 9 of diamonds resulted in 9.
-    //8 of hearts and queen of diamonds resulted in '8'
-    //8 of diamonds and ace of diamonds resulted in '1'
-    //8 of spades and 5 of hearts results in '5'
-    //8 of spades and 7 of clubs resulted in 7.
-    //8 of spades and ace of diamonds resulted in 1.
-    //8 of spades and jack of hearts resulted in 10.
-    //8 of hearts and 3 of clubs resulted in 3.
 
-//okay, I figured this out after 1.5 hours of debugging. I had the wrong variable in my above functions.
-
-//BUT: when 8 or 9 is the second card, the addition to my playerHand variable works fine:
-    //Ace of hearts and 9 of spades resulted in '10'.
-    //10 of hearts and 9 of diamonds resulted in '19'.
-    //8 of hearts and 9 of hearts resulted in '9'.
-    //10 of hearts and 9 of hearts resulted in '19'.
-
-    //ace of spades and 8 of clubs resulted in 9.
-    //4 of spades and 8 of clubs resulted in 12.
-    //6 of diamonds and 8 of clubs resulted in 14
-//ignore: i resolved this today.
-
-//Sometimes, my face cards add correctly and sometimes they do not like below:
-    //queen of spades and jack of hearts resulted in 19.
-    //jack of clubs and queen of hearts resulted in 19
-    //king of clubs and ace of spades resulted in 10.
-    //king of clubs and 9 of diamonds resulted in 17.
-        //TESTING, SIMILAR: king of clubs and 7 of clubs resulted in 17.
-    //jack of clubs and 7 of diamonds resulted in 16.
-        //TESTING, EXACT: I FIXED IT!: JACK OF CLUBS AND 7 OF DIAMONDS RESULTED IN 17.
-    //king of spades and jack of spades resulted in 19
-    //queen of diamonds and 10 of clubs resulted in 19
-
-
-
-
-function dealHitCards (arr) {
+    function dealHitCards (arr) {
     //PSEUDOCODE: this function is dealing my cards to the player based on the number of times they click the 'hit' button to request another card.
     hitClickCount += 1
         //this line adds 1 to the hit count variable.
@@ -3642,6 +3642,51 @@ LINE 3
 // deckWithImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
 
 // console.log(tableDeck.deck[12], deckWithImages[11])
+
+// dealInitialCards(tableDeck.deck)
+// console.log('dealInitialCards', tableDeck.deck)
+// console.log(dealPlayersCard1, dealPlayersCard2)
+// console.log('FIRSTDEALRESULTS', user.playerHand)
+    //RESOLVED: why won't all of my players' card values add properly based on my if functions above? The cards that don't appear to add to my playerhand variable are 8, 9, and at least some of my face cards? 
+//when 8 or 9 is my first card, the addition to my playerHand variable does not work properly:
+    //9 of hearts and 8 of spades resulted in '8'.
+    //9 of hearts and 6 of hearts resulted in '6'.
+    //9 of hearts and jack of clubs resulted in '10'.
+    //9 of diamonds and 3 of hearts resulted in '3'.
+    //9 of clubs and 3 of diamonds resulted in '3'.
+    
+    //8 of hearts and 9 of diamonds resulted in 9.
+    //8 of hearts and queen of diamonds resulted in '8'
+    //8 of diamonds and ace of diamonds resulted in '1'
+    //8 of spades and 5 of hearts results in '5'
+    //8 of spades and 7 of clubs resulted in 7.
+    //8 of spades and ace of diamonds resulted in 1.
+    //8 of spades and jack of hearts resulted in 10.
+    //8 of hearts and 3 of clubs resulted in 3.
+
+//okay, I figured this out after 1.5 hours of debugging. I had the wrong variable in my above functions.
+
+//BUT: when 8 or 9 is the second card, the addition to my playerHand variable works fine:
+    //Ace of hearts and 9 of spades resulted in '10'.
+    //10 of hearts and 9 of diamonds resulted in '19'.
+    //8 of hearts and 9 of hearts resulted in '9'.
+    //10 of hearts and 9 of hearts resulted in '19'.
+
+    //ace of spades and 8 of clubs resulted in 9.
+    //4 of spades and 8 of clubs resulted in 12.
+    //6 of diamonds and 8 of clubs resulted in 14
+//ignore: i resolved this today.
+
+//Sometimes, my face cards add correctly and sometimes they do not like below:
+    //queen of spades and jack of hearts resulted in 19.
+    //jack of clubs and queen of hearts resulted in 19
+    //king of clubs and ace of spades resulted in 10.
+    //king of clubs and 9 of diamonds resulted in 17.
+        //TESTING, SIMILAR: king of clubs and 7 of clubs resulted in 17.
+    //jack of clubs and 7 of diamonds resulted in 16.
+        //TESTING, EXACT: I FIXED IT!: JACK OF CLUBS AND 7 OF DIAMONDS RESULTED IN 17.
+    //king of spades and jack of spades resulted in 19
+    //queen of diamonds and 10 of clubs resulted in 19
 
 //MORE CODE GRAVEYARD
 /*
