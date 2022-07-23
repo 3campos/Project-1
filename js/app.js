@@ -161,12 +161,17 @@ class Player {
         this.playerMoney = playerMoney
     }
     playerBetAction(){    
-            betPrompt = prompt ('Enter a Bet Amount')
-            function promptForBet(){
-                if (betPrompt != null) {
-                document.getElementById('toBetAmount').innerText = `Bet Amount: $${betPrompt}`
-                }
-            }  
+        betPrompt = prompt ('Enter a Bet Amount. A $5 minimum is required: $')
+        // if (betPrompt >= 5) {
+        // document.getElementById('toBetAmount').innerText = `Bet Amount: $${betPrompt}`
+        // } 
+        while (betPrompt < 5) {
+            alert('Please bet at least $5.')
+            betPrompt = prompt ('Enter a Bet Amount. A $5 minimum is required per turn. $')
+        }
+        if (betPrompt >= 5){
+            document.getElementById('toBetAmount').innerText = `Bet: $${betPrompt}`
+            }
     }
     playerMoneyMethod(){
         console.log('COMPLETE playerMoneyMethod')
