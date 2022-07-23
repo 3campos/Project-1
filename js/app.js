@@ -5,6 +5,15 @@ document.body.style.backgroundRepeat = 'no-repeat';
 const getGameplayContainer = document.querySelector('.masterGameplayContainer')
 getGameplayContainer.style.visibility = 'hidden';
 
+function enableAgainAllButtons(){
+    document.getElementById('hit').style.pointerEvents = 'auto';
+    document.getElementById('stay').style.pointerEvents = 'auto';
+    document.getElementById('toBetAmount').style.pointerEvents = 'auto';
+    document.getElementById('bankroll').style.pointerEvents = 'auto';
+    document.getElementById('startButton').style.pointerEvents = 'auto';
+    document.getElementById('restartButton').style.pointerEvents = 'auto';
+}
+
 //CLASSES: deck, player, dealer, table (includes pot)
 class MainDeck {
     constructor(deck, suits, cards){
@@ -184,6 +193,7 @@ let getBankroll = document.getElementById('bankroll');
 
 function playerMoneyMethod(){
     getBankroll.innerText = `Bankroll = $${user.playerMoney -= user.playerBet}`
+    getBetAmount.innerText = `$${user.playerBet}`
     getPot.innerText = `$${user.playerBet}`
 }
 
@@ -247,7 +257,7 @@ function playerBlackjack(playersClicks){
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
-            getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
         } else if (user.playerHand<=21 && playersClicks === 3){
             setTimeout(function(){alert('Player has a blackjack! Player wins the round!'); }, 100)
             disableAllButtons()
@@ -256,7 +266,7 @@ function playerBlackjack(playersClicks){
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
-            getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
         } else if (user.playerHand > 21){
             setTimeout(function(){alert('Player busts! Dealer wins the round!'); }, 100)
             document.getElementById('dealers1stCardTLN').style.visibility = "visible"
@@ -265,7 +275,6 @@ function playerBlackjack(playersClicks){
             disableAllButtons()
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
-            getBankroll.innerText = `Bankroll = $${user.playerMoney}`
         }
     }
 
@@ -281,7 +290,6 @@ function dealerBlackjack(dealersHits){
         document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         getPot.innerText = `$${0}`
         getBetAmount.innerText = `$${0}`
-        getBankroll.innerText = `Bankroll = $${user.playerMoney}`
     } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
         setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 100)
         winner = 'Dealer'
@@ -291,7 +299,6 @@ function dealerBlackjack(dealersHits){
         document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         getPot.innerText = `$${0}`
         getBetAmount.innerText = `$${0}`
-        getBankroll.innerText = `Bankroll = $${user.playerMoney}`
     } else if (mrHouse.dealerHand > 21){
         setTimeout(function(){alert('Dealer busts! Player wins the round!'); }, 100)
         winner = 'Player'
@@ -301,7 +308,7 @@ function dealerBlackjack(dealersHits){
         document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         getPot.innerText = `$${0}`
         getBetAmount.innerText = `$${0}`
-        getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
+        getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
     }
 }
 
@@ -315,7 +322,6 @@ function compareHandsIfNoOneBusts(){
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
-            getBankroll.innerText = `Bankroll = $${user.playerMoney}`
         } else if(user.playerHand > mrHouse.dealerHand){
             setTimeout(function(){alert('Player has a higher hand. Player wins the round!'); }, 100)
             disableAllButtons()
@@ -324,7 +330,7 @@ function compareHandsIfNoOneBusts(){
             document.getElementById('dealers1stCardBRN').style.visibility = "visible"
             getPot.innerText = `$${0}`
             getBetAmount.innerText = `$${0}`
-            getBankroll.innerText = `Bankroll = $${user.playerMoney += (user.playerBet *= 2)}`
+            getBankroll.innerText = `Bankroll = $${user.playerMoney += user.playerBet += user.playerBet}`
         } else { //for draws
             setTimeout(function(){alert('The Player and Dealer have the same value. Draw!'); }, 100)
             disableAllButtons()
@@ -1525,8 +1531,10 @@ function dealInitialCards (arr) {
             //the set timeout method is supposed to delay my alert from displaying by half a second. My intent is to have the alert display after the card is dealt. Instead, my game result alerts (stating who wins the game) are displaying before the last card is dealt.
         dealerBlackjack(dealersHits)
         setTimeout(function(){
-        user.playerBetAction();}, 200)
-        setTimeout(function(){playerMoneyMethod();}, 200)
+            user.playerBetAction();}, 200)
+        console.log(setTimeout(function(){playerMoneyMethod();}, 200))
+            //For 7/23/22: if i console log the above playerMoneyMethod, I get 'undefined' in chrome.
+
         //QUESTION 2 FOR 7/22/22: Why are my cards not displaying before my game result alerts when I have a timeout function to delay the alerts?
     }
 
@@ -3291,6 +3299,7 @@ function dealDealersHitCards (arr) {
     playerBlackjack(hitClickCount)
     dealerBlackjack(dealersHits)
     compareHandsIfNoOneBusts()
+    document.getElementById('restartButton').style.pointerEvents = 'auto';
 }
 
 
@@ -3302,8 +3311,8 @@ document.getElementById('startButton').addEventListener('click', () => {
     dealInitialCards(tableDeck.deck)
     getGameplayContainer.style.visibility = 'visible';
     document.getElementById('startButton').style.pointerEvents = 'none';
-    //EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
 })
+//EXTRA if time allows, add an animation (maybe using keyframes) to fade in the gameplay container.
 
 //a multiplication function to test the below arrow functions containing event listeners
 
@@ -3334,13 +3343,7 @@ document.getElementById('stay').addEventListener('click', () => {
 // })
 
 //THANOS SNAP EVERYTHING
-function enableAgainAllButtons(){
-    document.getElementById('hit').style.pointerEvents = 'auto';
-    document.getElementById('stay').style.pointerEvents = 'auto';
-    document.getElementById('toBetAmount').style.pointerEvents = 'auto';
-    document.getElementById('bankroll').style.pointerEvents = 'auto';
-    document.getElementById('startButton').style.pointerEvents = 'auto';
-}
+
 
 document.getElementById('restartButton').addEventListener('click', () => {
     winner = 'TBD';
@@ -3348,6 +3351,8 @@ document.getElementById('restartButton').addEventListener('click', () => {
     mrHouse.dealerHand = 0;
     hitClickCount = 0;
     dealersHits = 0;
+    getPot.innerText = `$${0}`
+    getBetAmount.innerText = `$${0}`
     tableDeck.deck
     enableAgainAllButtons()
     
@@ -3400,6 +3405,11 @@ document.getElementById('restartButton').addEventListener('click', () => {
     dealerCard5BottomNumber.innerText = ''   
     dealerCard5Style.backgroundColor=''
     dealerCard5Suit.innerText=''
+
+    dealInitialCards(tableDeck.deck)
+    getGameplayContainer.style.visibility = 'visible';
+    // document.getElementById('startButton').style.pointerEvents = 'none';
+    // document.getElementById('restartButton').style.pointerEvents = 'none';
 
 })
 
@@ -3632,3 +3642,71 @@ LINE 3
 // deckWithImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
 
 // console.log(tableDeck.deck[12], deckWithImages[11])
+
+//MORE CODE GRAVEYARD
+/*
+setTimeout(function(){
+    winner = 'TBD';
+    user.playerHand = 0;
+    mrHouse.dealerHand = 0;
+    hitClickCount = 0;
+    dealersHits = 0;
+    tableDeck.deck
+    enableAgainAllButtons()
+    
+    playerCard1TopNumber.innerText = ''
+    playerCard1Suit.innerText = ''
+    playerCard1BottomNumber.innerText = ''
+    playerCard1Style.backgroundColor = ''
+
+    playerCard2TopNumber.innerText = ''
+    playerCard2Suit.innerText = ''
+    playerCard2BottomNumber.innerText = ''
+    playerCard2Style.backgroundColor = ''
+
+    playerCard3TopNumber.innerText = ''
+    playerCard3BottomNumber.innerText = ''
+    playerCard3Style.backgroundColor=''
+    playerCard3Suit.innerText=''
+
+    playerCard4TopNumber.innerText = ''
+    playerCard4BottomNumber.innerText = ''
+    playerCard4Style.backgroundColor=''
+    playerCard4Suit.innerText=''
+
+    playerCard5TopNumber.innerText = ''
+    playerCard5BottomNumber.innerText = ''
+    playerCard5Style.backgroundColor=''
+    playerCard5Suit.innerText=''
+
+    dealerCard1TopNumber.innerText = ''
+    dealerCard1Suit.innerText = ''
+    dealerCard1BottomNumber.innerText = ''
+    dealerCard1Style.backgroundColor= ''
+
+    dealerCard2TopNumber.innerText = ''        
+    dealerCard2BottomNumber.innerText = ''   
+    dealerCard2Style.backgroundColor=''
+    dealerCard2Suit.innerText=''
+
+    dealerCard3TopNumber.innerText = ''        
+    dealerCard3BottomNumber.innerText = ''   
+    dealerCard3Style.backgroundColor=''
+    dealerCard3Suit.innerText=''
+
+    dealerCard4TopNumber.innerText = ''        
+    dealerCard4BottomNumber.innerText = ''   
+    dealerCard4Style.backgroundColor=''
+    dealerCard4Suit.innerText=''
+
+    dealerCard5TopNumber.innerText = ''        
+    dealerCard5BottomNumber.innerText = ''   
+    dealerCard5Style.backgroundColor=''
+    dealerCard5Suit.innerText=''
+
+    dealInitialCards(tableDeck.deck)
+    getGameplayContainer.style.visibility = 'visible';
+    document.getElementById('startButton').style.pointerEvents = 'none';
+
+    ;}, 100)
+*/
