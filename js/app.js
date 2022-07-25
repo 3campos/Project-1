@@ -199,7 +199,7 @@ function playerMoneyMethod(){
     user.playerBet = parseInt(`${betPrompt}`)
     // console.log(user.playerBet, user.playerMoney)
     getBankroll.innerText = `Bankroll = $${user.playerMoney -= user.playerBet}`
-    getBetAmount.innerText = `$${user.playerBet}`
+    getBetAmount.innerText = `Bet = $${user.playerBet}`
     getPot.innerText = `$${user.playerBet}`
     //one issue: may need to parseint fof playerbet
 }
@@ -321,7 +321,7 @@ function dealerBlackjack(dealersHits){
         document.getElementById('dealers1stCardBRN').style.visibility = "visible"
         getPot.innerText = `$${0}`
         getBetAmount.innerText = `$${0}`
-        } else if (mrHouse.dealerHand<=21 && dealersHits === 3){
+        } else if (mrHouse.dealerHand<21 && dealersHits === 3){
         setTimeout(function(){alert('Dealer has a blackjack! Dealer wins the round!'); }, 100)
         winner = 'Dealer'
         disableAllButtons()
