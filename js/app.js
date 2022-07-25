@@ -442,6 +442,8 @@ function dealInitialCards (arr) {
         if (dealPlayersCard1.includes('Spades')){
             playerCard1Suit.innerText='♠️'
         } 
+        //e.g. this could be in a function and then I could pass the card in as a parameter.
+        //could change the number to a string (use parseint) and then pass that in as a parameter.
         } else if (dealPlayersCard1.startsWith("3")){
         user.playerHand +=3
         playerCard1TopNumber.innerText = '3'
