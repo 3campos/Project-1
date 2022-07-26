@@ -392,27 +392,39 @@ function compareHandsIfNoOneBusts(){
 }
 
 let arrayInitialDealToPlayer = [dealPlayersCard1, dealPlayersCard2]
+// let addValuesToPlayerHand = user.playerHand;
+let indexOfCardToPlayer;
 
 let arrayInitialDealToDealer = [dealDealersCard1, dealDealersCard2]
 
 function newDealInitialCardsToPlayer (arr) {
 
-    arrayInitialDealToPlayer.forEach(cardToPlayer => 
+    arrayInitialDealToPlayer.forEach(cardToPlayer =>
+        //for each loop is used to execute a function each time that the loop pass over an element.
     cardToPlayer = arr[Math.floor(Math.random() * arr.length)]
+        //this is the first function that is executed. 'cardToPlayer' represents each variable in the 'arrayInitialDealToPlayer' array on line 394. The formula after the equal sign randomly deals a card from the tableDeck.deck array.
     indexOfCardToPlayer = tableDeck.deck.indexOf(cardToPlayer)
+        //gets the index of the card that's randomly dealt.
     tableDeck.deck.splice(indexOfCardToPlayer, 1)
+        //extracts the randomly dealt card from the array
     playerCard1TopNumber.innerText = cardToPlayer.charAt(0)
+        //adds the first character from the card that's dealt.
     playerCard1BottomNumber.innerText = cardToPlayer.charAt(0)
+        //adds the first character from the card that's dealt.
     playerCard1Style.backgroundColor='white'
-
-    // if (cardToPlayer.startsWith("A")){
-    //     user.playerHand += 1
-    // } else if (cardToPlayer.startsWith("2")){
-    //     user.playerHand += 2
-    // } else if (cardToPlayer.startsWith("3")){
-    //     user.playerHand += 3
-    // }
-    //QUESTION: why is .playerHand being greyed out?
+        //adds a background color of white to the card.
+    if (cardToPlayer.startsWith("A")){
+        //An if function. I use a starts with function that will execute the code block within depending on the first letter of the card that is drawn.
+        user.playerHand += 1
+            //i call on the playerHand variable from my player's class and add 1 to it. I do the same with 2 and 3 below.
+    } if (cardToPlayer.startsWith("2")){
+        user.playerHand += 2
+    } if (cardToPlayer.startsWith("3")){
+        user.playerHand += 3
+    }
+    //QUESTION: is my for each loop structured correctly? I believe it is, based on mdn docs but want to confirm that I'm thinking about it correctly.
+        //QUESTION: why is .playerHand being greyed out?
+        //I tried setting user.playerHand equal to a global variable to see if that would help. It did not.
         //this may be another section that I need to make multiple if/else functions for.
 
     // if (cardToDealer.includes('Clubs')){
