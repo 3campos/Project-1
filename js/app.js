@@ -391,6 +391,80 @@ function compareHandsIfNoOneBusts(){
     }
 }
 
+let arrayInitialDealToPlayer = [dealPlayersCard1, dealPlayersCard2]
+
+let arrayInitialDealToDealer = [dealDealersCard1, dealDealersCard2]
+
+function newDealInitialCardsToPlayer (arr) {
+
+    arrayInitialDealToPlayer.forEach(cardToPlayer => 
+    cardToPlayer = arr[Math.floor(Math.random() * arr.length)]
+    indexOfCardToPlayer = tableDeck.deck.indexOf(cardToPlayer)
+    tableDeck.deck.splice(indexOfCardToPlayer, 1)
+    playerCard1TopNumber.innerText = cardToPlayer.charAt(0)
+    playerCard1BottomNumber.innerText = cardToPlayer.charAt(0)
+    playerCard1Style.backgroundColor='white'
+
+    // if (cardToPlayer.startsWith("A")){
+    //     user.playerHand += 1
+    // } else if (cardToPlayer.startsWith("2")){
+    //     user.playerHand += 2
+    // } else if (cardToPlayer.startsWith("3")){
+    //     user.playerHand += 3
+    // }
+    //QUESTION: why is .playerHand being greyed out?
+        //this may be another section that I need to make multiple if/else functions for.
+
+    // if (cardToDealer.includes('Clubs')){
+    //     playerCard1Suit.innerText='♣️'
+    // }
+
+    // if (cardToDealer.includes('Diamonds')){
+    //     playerCard1Suit.innerText='♦️'
+    // } 
+
+    // if (cardToDealer.includes('Hearts')){
+    //     playerCard1Suit.innerText='♥️'
+    // } 
+
+    // if (cardToDealer.includes('Spades')){
+    //     playerCard1Suit.innerText='♠️'
+    // }
+    )
+}
+
+console.log(newDealInitialCardsToPlayer (tableDeck.deck))
+
+function newDealInitialCardsToDealer (arr) {
+    arrayInitialDealToDealer.forEach(cardToDealer => 
+        cardToDealer = arr[Math.floor(Math.random() * arr.length)]
+        indexOfCardToDealer = tableDeck.deck.indexOf(cardToDealer)
+        tableDeck.deck.splice(indexOfCardToDealer, 1)
+        mrHouse.dealerHand += 1
+        dealerCard1TopNumber.innerText = cardToDealer.charAt(0)
+        dealerCard1BottomNumber.innerText = cardToDealer.charAt(0)
+        dealerCard1Style.backgroundColor='white'
+    
+        if (cardToDealer.includes('Clubs')){
+            dealerCard1Suit.innerText='♣️'
+        }
+    
+        if (cardToDealer.includes('Diamonds')){
+            dealerCard1Suit.innerText='♦️'
+        } 
+    
+        if (cardToDealer.includes('Hearts')){
+            dealerCard1Suit.innerText='♥️'
+        } 
+    
+        if (cardToDealer.includes('Spades')){
+            dealerCard1Suit.innerText='♠️'
+        }
+        )
+}
+
+newDealInitialCardsToDealer (tableDeck.deck)
+
 function dealInitialCards (arr) {
 
     dealPlayersCard1 = arr[Math.floor(Math.random() * arr.length)]
@@ -400,6 +474,12 @@ function dealInitialCards (arr) {
     tableDeck.deck.splice(extract1stPlayersCard, 1)
     //extracting the randomly dealt card from the array
     if (dealPlayersCard1.startsWith("A")){
+        //plan: the below if else functions could be replaced by a function and then I could pass my cards in as parameters.
+        //try a for each loop
+        //run the if statements as for each
+            //playercard1top...= array[x]
+            //tableDeck.deck(card => console.log())
+            //can put variables into an array after declaring them
         user.playerHand += 1
         playerCard1TopNumber.innerText = 'A'
         playerCard1BottomNumber.innerText = 'A'
